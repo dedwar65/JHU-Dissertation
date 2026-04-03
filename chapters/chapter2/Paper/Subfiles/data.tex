@@ -265,7 +265,7 @@ Figure~\ref{fig:returns_histogram_agg_pooled} shows the distribution of returns 
 
 \par Table~\ref{tab:39_reg_sample_demographics} summarizes the baseline (education categories and labor-force participation) and extended (gender, race/ethnicity, US birthplace, and census region) set of control variables relevant for the regression models.
 
-\InputStataRegTableCompact{\textbf{Sample Demographics}}{tab:39_reg_sample_demographics}{../../Code/Descriptive/Tables/39_reg_sample_demographics.tex}{Column~(1) reports shares for the 2020 cross-section; column~(2) reports shares pooled across all survey years.}
+\InputStataRegTableCompact{Sample Demographics}{tab:39_reg_sample_demographics}{../../Code/Descriptive/Tables/39_reg_sample_demographics.tex}{Column~(1) reports shares for the 2020 cross-section; column~(2) reports shares pooled across all survey years.}
 \FloatBarrier
 
 
@@ -289,10 +289,10 @@ Figure~\ref{fig:returns_histogram_agg_pooled} shows the distribution of returns 
 
 \par Tables~\ref{tab:39_r5_age_bin} and \ref{tab:39_r5_educ_cat} report mean returns (and $N$, SD) by age bin and by education category.\footnote{Age bins are 5-year groups with lower bounds shown in the first column.}
 
-\InputStataRegTableCompact{\textbf{Return to Net Wealth by Age Bin}}{tab:39_r5_age_bin}{../../Code/Descriptive/Tables/39_r5_by_age_bin.tex}{Return to net wealth (5\% winsorized), pooled person-years. Age bins are 5-year groups.}
+\InputStataRegTableCompact{Return to Net Wealth by Age Bin}{tab:39_r5_age_bin}{../../Code/Descriptive/Tables/39_r5_by_age_bin.tex}{Return to net wealth (5\% winsorized), pooled person-years. Age bins are 5-year groups.}
 \FloatBarrier
 
-\InputStataRegTableCompact{\textbf{Return to Net Wealth by Education Category}}{tab:39_r5_educ_cat}{../../Code/Descriptive/Tables/39_r5_by_educ_cat.tex}{Return to net wealth (5\% winsorized), pooled person-years. Education categories are constructed from RAND HRS years of education: Less HS ($<12$), HS Grad ($=12$), Some College ($13$--$15$), College ($=16$), Postgrad ($>16$).}
+\InputStataRegTableCompact{Return to Net Wealth by Education Category}{tab:39_r5_educ_cat}{../../Code/Descriptive/Tables/39_r5_by_educ_cat.tex}{Return to net wealth (5\% winsorized), pooled person-years. Education categories are constructed from RAND HRS years of education: Less HS ($<12$), HS Grad ($=12$), Some College ($13$--$15$), College ($=16$), Postgrad ($>16$).}
 \FloatBarrier
 
 \subsubsection{Return vs.\ labor force participation status}
@@ -323,18 +323,18 @@ Figure~\ref{fig:returns_histogram_agg_pooled} shows the distribution of returns 
 
 \par Table~\ref{tab:41_summary_portfolios} shows that participation is highest in safe assets, residential assets, and the broader core-asset grouping, while direct participation in business and other real estate is much less common. In terms of composition, residential assets account for the largest average share of household balance sheets, followed by core assets and then retirement assets. Debt is also economically important in the pooled sample: over half of person-years involve some debt, and the leverage measures show a long right tail, especially for long-term and total debt.
 
-\InputStataRegTableCompact{\textbf{Participation and Portfolio Composition}}{tab:41_summary_portfolios}{../../Code/Analysis/Tables/41_table5_summary_portfolios.tex}{All shares are expressed as fractions of gross wealth. Participation is the fraction of person-years with a strictly positive holding. Leverage ratios can exceed one when liabilities exceed gross assets.}
+\InputStataRegTableCompact{Participation and Portfolio Composition}{tab:41_summary_portfolios}{../../Code/Analysis/Tables/41_table5_summary_portfolios.tex}{All shares are expressed as fractions of gross wealth. Participation is the fraction of person-years with a strictly positive holding. Leverage ratios can exceed one when liabilities exceed gross assets.}
 \FloatBarrier
 
 \par Table~\ref{tab:41_asset_shares_by_wealth} shows that asset composition shifts sharply across the wealth distribution. At the bottom, balance sheets are dominated by debt, with very little exposure to business, stocks, or other real estate. Moving up the distribution, risky assets become more important: stocks, business wealth, and other real estate all rise with wealth, and at the very top business ownership becomes especially prominent. This is consistent with the idea that observed portfolio exposure is highly heterogeneous across households.
 
-\InputStataRegTableCompact{\textbf{Asset Composition by Wealth (Core) Fractiles}}{tab:41_asset_shares_by_wealth}{../../Code/Analysis/Tables/41_table6_asset_shares_by_wealth.tex}{Mean share of gross wealth in core assets in each of the asset/liability classes, computed as fractile of the core wealth distribution. Fractile boundaries are based on rank within the full person-year sample. Safe assets $=$ bonds + checking/saving.}
+\InputStataRegTableCompact{Asset Composition by Wealth (Core) Fractiles}{tab:41_asset_shares_by_wealth}{../../Code/Analysis/Tables/41_table6_asset_shares_by_wealth.tex}{Mean share of gross wealth in core assets in each of the asset/liability classes, computed as fractile of the core wealth distribution. Fractile boundaries are based on rank within the full person-year sample. Safe assets $=$ bonds + checking/saving.}
 \FloatBarrier
 
 \par The broader portfolio aggregates in Table~\ref{tab:41_port_shares_by_wealth} tell a similar story. Residential wealth is the dominant asset for much of the middle of the distribution, while core assets take over at the top, and retirement assets are largest in the upper-middle and upper-tail groups rather than at the very top. Debt shares fall rapidly with wealth, so leverage is concentrated in the lower part of the distribution.
 
 
-\InputStataRegTableCompact{\textbf{Portfolio Composition by Net-Wealth Fractiles}}{tab:41_port_shares_by_wealth}{../../Code/Analysis/Tables/41_table7_port_shares_by_wealth.tex}{Mean share of gross wealth in each broad asset/liability class, computed within pooled net-wealth fractiles. Core $=$ business + stocks + bonds + checking/savings + other real estate. Total debt $=$ long-term debt + other debt.}
+\InputStataRegTableCompact{Portfolio Composition by Net-Wealth Fractiles}{tab:41_port_shares_by_wealth}{../../Code/Analysis/Tables/41_table7_port_shares_by_wealth.tex}{Mean share of gross wealth in each broad asset/liability class, computed within pooled net-wealth fractiles. Core $=$ business + stocks + bonds + checking/savings + other real estate. Total debt $=$ long-term debt + other debt.}
 \FloatBarrier
 
 \par These composition patterns matter in Section~\ref{sec:exts}, where I revisit the main specifications by using the portfolio shares as a proxy for risk exposure.
