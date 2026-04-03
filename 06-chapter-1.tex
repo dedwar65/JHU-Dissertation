@@ -1,10 +1,20 @@
-\chapter{Chapter title goes here} \label{chap:chap-1}
+\chapter{Matching Wealth Moments with Heterogeneous Returns}
+\label{chap:matching-wealth-moments}
 
-% if you want a short header you can use the following command
-% \chapter[short-header-name]{chapter-title} \label{chap:chap-1}
+\begingroup
+\singlespacing
+\section*{Abstract}
+\input{chapters/chapter1/Subfiles/abstract}
+\endgroup
 
-
-%% add your chapter text here
-\blindtext \cite{dirac}
-
-\Blindtext[3]
+\subfile{chapters/chapter1/Subfiles/intro}
+\subfile{chapters/chapter1/Subfiles/litrev}
+\subfile{chapters/chapter1/Subfiles/model}
+\subfile{chapters/chapter1/Subfiles/results}
+\FloatBarrier
+\subfile{chapters/chapter1/Subfiles/taxation}
+\FloatBarrier
+\subfile{chapters/chapter1/Subfiles/mechanism}
+\clearpage
+\subfile{chapters/chapter1/Subfiles/lognormal_ret}
+\subfile{chapters/chapter1/Subfiles/conclusion}

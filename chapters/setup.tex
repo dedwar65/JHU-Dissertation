@@ -1,0 +1,17 @@
+\usepackage{subfiles}
+\usepackage[section]{placeins}
+\usepackage{adjustbox}
+\usepackage{threeparttable}
+
+\providecommand{\onlyinsubfile}[1]{}
+\providecommand{\notinsubfile}[1]{#1}
+\providecommand{\say}[1]{\enquote{#1}}
+\newcolumntype{d}[1]{D{.}{.}{#1}}
+\newcommand{\inputtable}[1]{%
+  \begingroup
+  \let\origtable\table
+  \let\endorigtable\endtable
+  \renewenvironment{table}[1][]{\origtable[H]}{\endorigtable}
+  \input{#1}%
+  \endgroup
+}

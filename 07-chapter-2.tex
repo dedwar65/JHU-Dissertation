@@ -1,21 +1,15 @@
-\chapter{Chapter title goes here} \label{chap:chap-2}
+\chapter{Moderate Trust and Maximum Performance on Financial Investments}
+\label{chap:trust-returns}
 
-%%%% OPTIONAL EPIGRAPH EXAMPLE
-\epigraph{Do not believe everything you see on the internet.}{-- Albert Einstein}
+\begingroup
+\singlespacing
+\section*{Abstract}
+\input{chapters/chapter2/Paper/Subfiles/abstract}
+\endgroup
 
-
-%%%% MUST: if the chapter is a reprint or submitted paper, you must declare it
-%% you can use enumerate or itemize environment if you have more than one paper 
-%% \mybibexclude{} will exclude this citation from the final bibliography
-%% if this paper appears somewhere else then remove \mybibexclude{} command
-
-\begin{singlespace}         % you can also use `onehalfspace` to relax the spacing
-    This chapter is adapted from the following article with permission from <publisher>
-    
-    \fullcite{einstein}. \mybibexclude{einstein}
-\end{singlespace} 
-
-
-%%%% remove the following and add your chapter text here
-\section{Introduction}
-\Blindtext[2]
+\subfile{chapters/chapter2/Paper/Subfiles/introduction}
+\subfile{chapters/chapter2/Paper/Subfiles/litrev}
+\subfile{chapters/chapter2/Paper/Subfiles/data}
+\subfile{chapters/chapter2/Paper/Subfiles/results}
+\subfile{chapters/chapter2/Paper/Subfiles/extensions}
+\subfile{chapters/chapter2/Paper/Subfiles/conclusion}

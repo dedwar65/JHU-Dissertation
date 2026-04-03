@@ -1,0 +1,45 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular*}{\linewidth}{@{\hskip\tabcolsep\extracolsep\fill}l*{2}{c}}
+\toprule
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}\\
+\midrule
+In labor force      &        0.02         &        0.01         \\
+                    &      (0.02)         &      (0.02)         \\
+Share core          &        0.36         &        0.36         \\
+                    &      (0.22)         &      (0.23)         \\
+Share IRA           &       -0.05         &       -0.05         \\
+                    &      (0.22)         &      (0.22)         \\
+Share residential   &        0.17         &        0.18         \\
+                    &      (0.20)         &      (0.20)         \\
+Share long-term debt&       -0.43         &       -0.42         \\
+                    &      (0.26)         &      (0.26)         \\
+Share other debt    &       -0.74\sym{**} &       -0.74\sym{**} \\
+                    &      (0.35)         &      (0.34)         \\
+Married             &                     &       -0.04         \\
+                    &                     &      (0.05)         \\
+Midwest             &                     &        0.01         \\
+                    &                     &      (0.11)         \\
+South               &                     &       -0.06         \\
+                    &                     &      (0.07)         \\
+West                &                     &       -0.06         \\
+                    &                     &      (0.10)         \\
+\_cons              &       -0.80\sym{**} &       -0.76\sym{**} \\
+                    &      (0.34)         &      (0.35)         \\
+\midrule
+N                   &     2886.00         &     2868.00         \\
+Within $R^2$        &        0.20         &        0.20         \\
+$\rho$              &        0.64         &        0.63         \\
+$\sigma_{u}$        &        0.47         &        0.46         \\
+$\sigma_{e}$        &        0.35         &        0.35         \\
+Age joint $p$       &        0.00         &        0.00         \\
+Wealth joint $p$    &        0.00         &        0.00         \\
+Year joint $p$      &        0.01         &        0.01         \\
+Share (debt) joint $p$&        0.01         &        0.01         \\
+Share core$\times$year $p$&        0.02         &        0.03         \\
+Share IRA$\times$year $p$&        0.00         &        0.00         \\
+Share res$\times$year $p$&        0.01         &        0.02         \\
+Share debt-other$\times$year $p$&        0.00         &        0.00         \\
+\bottomrule
+\end{tabular*}
+}

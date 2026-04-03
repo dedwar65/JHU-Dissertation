@@ -1,0 +1,39 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular*}{\linewidth}{@{\hskip\tabcolsep\extracolsep\fill}l*{2}{c}}
+\toprule
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}\\
+\midrule
+Trust               &       -0.01         &        0.01         \\
+                    &      (0.02)         &      (0.02)         \\
+Trust$^2$           &        0.00         &       -0.00         \\
+                    &      (0.00)         &      (0.00)         \\
+HS Grad             &       -0.13\sym{**} &       -0.05         \\
+                    &      (0.05)         &      (0.06)         \\
+Some College        &       -0.13\sym{**} &       -0.08         \\
+                    &      (0.06)         &      (0.06)         \\
+College             &       -0.40\sym{***}&       -0.30\sym{***}\\
+                    &      (0.07)         &      (0.08)         \\
+Postgrad            &       -0.49\sym{***}&       -0.37\sym{***}\\
+                    &      (0.06)         &      (0.06)         \\
+Female              &                     &        0.02         \\
+                    &                     &      (0.04)         \\
+NH Black            &                     &        0.25\sym{***}\\
+                    &                     &      (0.05)         \\
+Hispanic            &                     &        0.26\sym{***}\\
+                    &                     &      (0.06)         \\
+NH Other            &                     &        0.05         \\
+                    &                     &      (0.07)         \\
+Born in U.S.        &                     &        0.08         \\
+                    &                     &      (0.05)         \\
+\_cons              &        0.36\sym{***}&       -0.03         \\
+                    &      (0.06)         &      (0.09)         \\
+\midrule
+N                   &      575.00         &      573.00         \\
+Adj.\ R$^2$         &        0.12         &        0.17         \\
+Trust joint $p$     &        0.57         &        0.85         \\
+Race joint $p$      &           .         &        0.00         \\
+Educ.\ joint $p$    &        0.00         &        0.00         \\
+\bottomrule
+\end{tabular*}
+}

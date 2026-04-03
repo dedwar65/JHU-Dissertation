@@ -1,0 +1,29 @@
+% Requires in preamble:
+% \usepackage{booktabs, graphicx}
+
+\begin{table}[!htbp]
+\centering
+\caption{Per-Type Consumption-Equivalent Welfare Change and Baseline Return (WT vs CIT)}
+\label{tab:ce_per_type_wt_vs_cit}
+
+\resizebox{0.95\textwidth}{!}{%
+\begin{tabular}{lccccccc}
+\toprule
+& \textbf{Type 1} & \textbf{Type 2} & \textbf{Type 3} & \textbf{Type 4} & \textbf{Type 5} & \textbf{Type 6} & \textbf{Type 7} \\
+\midrule
+Baseline $R$ (gross) & 0.9618 & 0.9813 & 1.0009 & 1.0204 & 1.0399 & 1.0594 & 1.0790 \\
+CE $\Delta$ (WT vs CIT, \%) & 0.23\% & 0.27\% & 0.34\% & 0.32\% & 0.30\% & 0.24\% & -0.31\% \\
+\bottomrule
+\end{tabular}%
+} % end resizebox
+
+\vspace{0.4em}
+\begin{minipage}{0.95\textwidth}
+\footnotesize
+\textit{Notes:} CE entries are consumption-equivalent welfare changes
+(pmv-weighted within type), expressed as percent. Positive values indicate
+that capital income taxation is preferred to wealth taxation for that return
+type. Baseline $R$ values are pre-tax gross returns by type (low
+$\rightarrow$ high).
+\end{minipage}
+\end{table}

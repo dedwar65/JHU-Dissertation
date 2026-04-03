@@ -1,0 +1,31 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular*}{\linewidth}{@{\hskip\tabcolsep\extracolsep\fill}l*{2}{c}}
+\toprule
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}\\
+\midrule
+In labor force      &        0.03\sym{***}&        0.03\sym{***}\\
+                    &      (0.00)         &      (0.00)         \\
+Married             &                     &       -0.05\sym{***}\\
+                    &                     &      (0.01)         \\
+Census region: Midwest&                     &       -0.02         \\
+                    &                     &      (0.03)         \\
+Census region: South&                     &       -0.03         \\
+                    &                     &      (0.02)         \\
+Census region: West &                     &       -0.07\sym{**} \\
+                    &                     &      (0.03)         \\
+\_cons              &       -0.25         &       -0.21         \\
+                    &      (0.16)         &      (0.18)         \\
+\midrule
+N                   &   102894.00         &   102348.00         \\
+Within $R^2$        &        0.18         &        0.18         \\
+$\rho$              &        0.66         &        0.65         \\
+$\sigma_{u}$        &        0.46         &        0.45         \\
+$\sigma_{e}$        &        0.33         &        0.33         \\
+Age joint $p$       &        0.00         &        0.00         \\
+Wealth joint $p$    &        0.00         &        0.00         \\
+Year joint $p$      &        0.00         &        0.00         \\
+Region joint $p$    &           .         &        0.14         \\
+\bottomrule
+\end{tabular*}
+}
