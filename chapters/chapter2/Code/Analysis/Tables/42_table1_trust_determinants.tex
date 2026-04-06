@@ -1,57 +1,64 @@
 {
 \def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
-\begin{tabular*}{\linewidth}{@{\hskip\tabcolsep\extracolsep\fill}l*{3}{D{.}{.}{-1}}}
+\begin{tabular*}{\linewidth}{@{\hskip\tabcolsep\extracolsep\fill}l*{4}{c}}
 \toprule
-                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}\\
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}\\
 \midrule
-Female              &        0.26         &        0.60\sym{***}&        0.61\sym{***}\\
-                    &      (0.17)         &      (0.22)         &      (0.23)         \\
-Years of education  &        0.04         &        0.00         &       -0.00         \\
-                    &      (0.03)         &      (0.05)         &      (0.05)         \\
-Married             &        0.38\sym{**} &       -0.01         &       -0.13         \\
-                    &      (0.18)         &      (0.24)         &      (0.26)         \\
-NH Black            &       -1.06\sym{***}&       -1.19\sym{***}&       -1.25\sym{***}\\
-                    &      (0.22)         &      (0.31)         &      (0.31)         \\
-Hispanic            &       -0.43         &       -0.38         &       -0.39         \\
-                    &      (0.27)         &      (0.40)         &      (0.40)         \\
-NH Other            &       -0.17         &       -1.00         &       -1.26\sym{*}  \\
-                    &      (0.31)         &      (0.63)         &      (0.64)         \\
-Depression          &       -0.17\sym{***}&       -0.14\sym{**} &       -0.12\sym{*}  \\
-                    &      (0.04)         &      (0.06)         &      (0.06)         \\
-Small/med city (10k-100k)&                     &        0.00         &       -0.10         \\
-                    &                     &      (0.29)         &      (0.29)         \\
-Large metro (100k+) &                     &        0.10         &        0.08         \\
-                    &                     &      (0.29)         &      (0.29)         \\
-Deception: Social Security&                     &       -0.00         &        0.00         \\
-                    &                     &      (0.00)         &      (0.00)         \\
-Deception: Medicare/Medicaid&                     &        0.00         &        0.00         \\
-                    &                     &      (0.00)         &      (0.00)         \\
-Deception: Banks    &                     &       -0.00         &       -0.00\sym{*}  \\
-                    &                     &      (0.00)         &      (0.00)         \\
-Deception: Financial advisors&                     &       -0.00         &       -0.00         \\
-                    &                     &      (0.00)         &      (0.00)         \\
-Deception: Mutual funds&                     &        0.00         &        0.00         \\
-                    &                     &      (0.00)         &      (0.00)         \\
-Deception: Insurance companies&                     &       -0.00         &       -0.00\sym{*}  \\
-                    &                     &      (0.00)         &      (0.00)         \\
-Health conditions   &                     &                     &       -0.06         \\
-                    &                     &                     &      (0.09)         \\
-Covered by Medicare &                     &                     &       -0.01         \\
-                    &                     &                     &      (0.35)         \\
-Covered by Medicaid &                     &                     &       -0.25         \\
-                    &                     &                     &      (0.37)         \\
-Has life insurance  &                     &                     &        0.39\sym{*}  \\
-                    &                     &                     &      (0.23)         \\
-Number of reported divorces&                     &                     &       -0.07         \\
-                    &                     &                     &      (0.13)         \\
-Number of reported times being widowed&                     &                     &       -0.11         \\
-                    &                     &                     &      (0.32)         \\
-Constant            &        2.83         &        1.02         &        1.54         \\
-                    &      (1.83)         &      (0.83)         &      (0.94)         \\
+Female              &        0.24         &        0.60\sym{***}&        0.61\sym{***}&        0.57         \\
+                    &      (0.17)         &      (0.22)         &      (0.23)         &      (0.38)         \\
+Years of education  &        0.05         &        0.00         &       -0.00         &        0.00         \\
+                    &      (0.03)         &      (0.05)         &      (0.05)         &      (0.08)         \\
+Married             &        0.34\sym{*}  &       -0.01         &       -0.13         &        0.24         \\
+                    &      (0.18)         &      (0.24)         &      (0.26)         &      (0.41)         \\
+NH Black            &       -1.08\sym{***}&       -1.19\sym{***}&       -1.25\sym{***}&       -0.62         \\
+                    &      (0.22)         &      (0.31)         &      (0.31)         &      (0.51)         \\
+Hispanic            &       -0.44\sym{*}  &       -0.38         &       -0.39         &       -0.51         \\
+                    &      (0.27)         &      (0.40)         &      (0.40)         &      (0.63)         \\
+NH Other            &       -0.21         &       -1.00         &       -1.26\sym{*}  &       -2.16\sym{*}  \\
+                    &      (0.31)         &      (0.63)         &      (0.64)         &      (1.21)         \\
+In labor force      &        0.20         &        0.14         &       -0.03         &       -0.33         \\
+                    &      (0.19)         &      (0.23)         &      (0.23)         &      (0.37)         \\
+Depression          &       -0.16\sym{***}&       -0.14\sym{**} &       -0.12\sym{*}  &        0.09         \\
+                    &      (0.04)         &      (0.06)         &      (0.06)         &      (0.10)         \\
+Small/med city (10k-100k)&                     &        0.00         &       -0.10         &        0.02         \\
+                    &                     &      (0.29)         &      (0.29)         &      (0.47)         \\
+Large metro (100k+) &                     &        0.10         &        0.08         &       -0.09         \\
+                    &                     &      (0.29)         &      (0.29)         &      (0.48)         \\
+Deception: Social Security&                     &       -0.00         &        0.00         &        0.01         \\
+                    &                     &      (0.00)         &      (0.00)         &      (0.01)         \\
+Deception: Medicare/Medicaid&                     &        0.00         &        0.00         &       -0.01         \\
+                    &                     &      (0.00)         &      (0.00)         &      (0.01)         \\
+Deception: Banks    &                     &       -0.00         &       -0.00\sym{*}  &       -0.00\sym{*}  \\
+                    &                     &      (0.00)         &      (0.00)         &      (0.00)         \\
+Deception: Financial advisors&                     &       -0.00         &       -0.00         &       -0.00         \\
+                    &                     &      (0.00)         &      (0.00)         &      (0.00)         \\
+Deception: Mutual funds&                     &        0.00         &        0.00         &        0.00         \\
+                    &                     &      (0.00)         &      (0.00)         &      (0.00)         \\
+Deception: Insurance companies&                     &       -0.00         &       -0.00\sym{*}  &       -0.00         \\
+                    &                     &      (0.00)         &      (0.00)         &      (0.00)         \\
+Health conditions   &                     &                     &       -0.06         &       -0.17         \\
+                    &                     &                     &      (0.09)         &      (0.16)         \\
+Covered by Medicare &                     &                     &       -0.01         &       -0.59         \\
+                    &                     &                     &      (0.35)         &      (0.48)         \\
+Covered by Medicaid &                     &                     &       -0.25         &        0.24         \\
+                    &                     &                     &      (0.37)         &      (0.64)         \\
+Has life insurance  &                     &                     &        0.39\sym{*}  &        0.21         \\
+                    &                     &                     &      (0.23)         &      (0.37)         \\
+Number of reported divorces&                     &                     &       -0.07         &       -0.08         \\
+                    &                     &                     &      (0.13)         &      (0.22)         \\
+Number of reported times being widowed&                     &                     &       -0.11         &        0.28         \\
+                    &                     &                     &      (0.32)         &      (0.37)         \\
+Leaves any bequest  &                     &                     &                     &        0.01\sym{*}  \\
+                    &                     &                     &                     &      (0.01)         \\
+Constant            &        2.72         &        1.02         &        1.54         &       -0.40         \\
+                    &      (1.76)         &      (0.83)         &      (0.94)         &      (1.80)         \\
 \midrule
-Observations        &      894.00         &      502.00         &      493.00         \\
-Adj.\ R$^2$         &        0.11         &        0.14         &        0.15         \\
-Deception joint $p$ &           .         &        0.62         &        0.40         \\
+Observations        &      890.00         &      502.00         &      493.00         &      236.00         \\
+Adj.\ R$^2$         &        0.11         &        0.14         &        0.15         &        0.17         \\
+Deception joint $p$ &           .         &        0.62         &        0.40         &        0.48         \\
+Age joint $p$       &        0.00         &        0.00         &        0.00         &        0.00         \\
+Race joint $p$      &        0.00         &        0.00         &        0.00         &        0.20         \\
+Region joint $p$    &           .         &        0.98         &        0.99         &        0.55         \\
 \bottomrule
 \end{tabular*}
 }
