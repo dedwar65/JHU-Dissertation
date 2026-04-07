@@ -8,9 +8,9 @@
 \subsection{Sample restrictions}
 \label{ssec:sample-restrictions}
 
-\par After merging the RAND longitudinal extract with the constructed return and wealth fields, the analysis-ready wide file contains about 45{,}200 respondent identifiers; reshaping to a long person--year panel yields about 543{,}000 rows spanning the interview years used here. Most core RAND covariates are observed for a large share of those rows, but usable returns and trust do not line up with that full rectangle. Wave-specific returns to net wealth (5\% winsorized within survey year) are nonmissing for about 137{,}000 person-years: many observations drop out in a given wave when wealth, flows, or other return ingredients are incomplete. Generalized trust is measured only in the 2020 module; in the long panel, 900 respondents have a nonmissing 2020 trust response, and that value is carried on their other waves so that about 10{,}800 person-year rows carry nonmissing trust for estimation.
+\par After merging the RAND longitudinal extract with the constructed return and wealth fields, the analysis-ready wide file contains about 45{,}200 respondent identifiers; reshaping to a long person--year panel yields about 543{,}000 rows spanning the interview years used here. Most core RAND covariates are observed for a large share of those rows, but the key sample of interest is comprised of the respondents who have nonmissing values for the trust and returns to net wealth variables (along with the other variables used in the regression analysis). Wave-specific returns to net wealth (5\% winsorized within survey year) are nonmissing for about 137{,}000 person-years: many observations drop out in a given wave when wealth, flows, or other return ingredients are incomplete. Generalized trust is measured only in the 2020 module; in the long panel, 900 respondents have a nonmissing 2020 trust response, and that value is carried on their other waves so that about 10{,}800 person-year rows carry nonmissing trust for estimation.
 
-\par The pooled descriptives in this section (histograms, binscatter figures, return-by-age and return-by-education tables, and the portfolio composition tables below) restrict person-years to the same listwise-complete sample as a benchmark pooled OLS of 5\% winsorized returns to net wealth on quadratic trust with the baseline time-varying controls and education categories only---2{,}919 person-years. Of those, 449 rows are 2020 interviews and enter the trust histogram and the race-by-trust summary (all 449 have nonmissing generalized trust). The main regression tables in Section~\ref{sec:results} use the specifications printed there (larger or smaller $N$ by column); the extended correlated-random-effects column for net wealth uses about 2{,}900 person-years. When the dissertation build sets a single unified Chapter~2 sample (extended CRE person-years), the corresponding flag yields about 2{,}900 person-years for tables and figures tied to that mode.
+\par The descriptive statistics for which observations are pooled (histograms, bin-scatter figures, return-by-age and return-by-education tables, and the portfolio composition tables below) restrict person-years to the same listwise-complete sample as a benchmark pooled OLS of 5\% winsorized returns to net wealth on quadratic trust with the baseline time-varying controls and education categories only---2{,}919 person-years. Of those, 449 rows are 2020 interviews and enter the trust histogram and the race-by-trust summary (all 449 have nonmissing generalized trust). The main regression tables in Section~\ref{sec:results} use the specifications printed there (larger or smaller $N$ by column); the extended Correlated Random Effects (CRE) model for net wealth uses about 2{,}900 person-years. When the dissertation build sets a single unified Chapter~2 sample (extended CRE person-years), the corresponding flag yields about 2{,}900 person-years for tables and figures tied to that mode.
 
 \subsection{Asset classes and portfolio definitions}
 
@@ -304,11 +304,15 @@ where $y^{net}_{it}$ is the interest income and dividends on core and retirement
 
 \subsection{Demographic variables}
 
-\par I am interested in the relationship between trust and economic performance as the literature is, however in my setting the measure of economic performance is the return to net wealth. If a hump-shaped relationship is reasonable for income, it is even more plausible for returns: there is an inherent (and possibly explicit) level of trust between borrower and lender when forming credit contracts.
+\par The HRS offers a collection of trust questions in \say{Section V: Modules} section of the 2020 survey. There are a total of 8 questions, and the one I focus on in this paper is \texttt{Trust: People in General} (\texttt{RV557}):
 
-\par The HRS offers a suite of trust questions in \say{Section V: Modules} section of the 2020 survey. There are a total of 8 questions, asking respondents to say on a scale of 1-10 \say{how much do you trust people in general?} and of their trust in other features of American life relating to healthcare, finance, and media. These questions were only asked in that year. This is an issue, since the panel structure of the HRS allows me to estimate the persistent component of returns, variation in the trust measure would be ideal if it matters for trust. That said, in the panel setting, we can assume that trust, like education, is fixed over time.\footnote{Literature on trust talks about how history of being cheated or treated fairly form individuals' trust over time. If this is true and at some point, one learns enough an forms their trust level, then a sample with an overrepresentation of older household is a reasonable environment to assume constant trust levels.}
+\begin{itemize}
+  \item ``How much do you trust people in general?''
+  \end{itemize}
 
-\par Figure~\ref{fig:39_trust_general_2020_hist} shows the distribution of responses to the generalized-trust question (scale 1--10) for regression-sample respondents in the 2020 interview wave.
+Respondents are asked to give an answer between 1 and 10. This set of trust questions was only a part of the questionnaire in that year. This is an issue, since the panel structure of the HRS allows me to estimate the persistent component of returns, variation in the trust measure would be ideal if it matters for trust. That said, in the panel setting, we can assume that trust, like education, is fixed over time.\footnote{Literature on trust talks about how history of being cheated or treated fairly form individuals' trust over time. If this is true and at some point, one learns enough and forms their trust level, then a sample with an over-representation of older household is a reasonable environment to assume constant trust levels.}
+
+\par Figure~\ref{fig:39_trust_general_2020_hist} shows the distribution of responses to the trust question. Interestingly, most of the respondents report a trust level of 5 or 7. In addition, there are a significant number of respondents who report trusting other people at the most extreme values (0 or 10). This suggests that the sample has a significant number of individuals who are very trusting and also very distrusting. In general, 
 
 \begin{figure}[H]
 \centering
@@ -318,7 +322,7 @@ where $y^{net}_{it}$ is the interest income and dividends on core and retirement
 \end{figure}
 \FloatBarrier
 
-\par Figure~\ref{fig:trust_mean_by_race_eth_2020} summarizes mean generalized trust (1--10) by race and ethnicity in the 2020 interview wave, for respondents with nonmissing trust and race/ethnicity. The pattern is descriptive background for the control set used in the regressions, where race and ethnicity enter as categorical covariates.
+\par Figure~\ref{fig:trust_mean_by_race_eth_2020} summarizes the average trust responses by race and ethnicity. As can be seen in Appendix Table~\ref{tab:42_trust_determinants} (\textit{Determinants of General Trust}), the race variable (in particular, the \texttt{Black} racial group) is robustly found to be predictive of and negatively correlated with trust. Minority groups, especially \texttt{Black}, report lower trust levels on average than their white counterparts in the sample. 
 
 \begin{figure}[H]
 \centering
@@ -352,17 +356,38 @@ where $y^{net}_{it}$ is the interest income and dividends on core and retirement
 \end{table}%
 }
 
-\par Table~\ref{tab:39_reg_sample_demographics} summarizes the baseline (education categories and labor-force participation) and extended (gender, race/ethnicity, US birthplace, and census region) set of control variables relevant for the regression models.
+\par Table~\ref{tab:39_reg_sample_demographics} summarizes the relevant baseline control variables (\texttt{Years of Schooling} (\texttt{RAEDYRS}) and \texttt{Labor Force Status} (\texttt{RwLBRF})) and the extended set of control vairables(\texttt{Gender} (\texttt{RAGENDER}), \texttt{Race} (\texttt{RARACEM}), \texttt{Whether Hispanic} (\texttt{RAHISPAN})\footnote{The two \texttt{Race, Ethnicity} variables are combined to create the racial categories: NH White, NH Black, Hispanic, NH Other.}, \texttt{Place of Birth} (\texttt{RABPLACE}), and \texttt{Census Region} (\texttt{RwCENREG})) relevant for the regression models. Notice that the summary statistic (proportion of respondents for the categorical variables) 2020 demographic variables seem to be very close to the pooled versions of those same variables. This is a good sign, since trust is only measured in 2020.
 
-\InputStataRegTableCompact{\textbf{Sample Demographics}}{tab:39_reg_sample_demographics}{../../Code/Descriptive/Tables/39_reg_sample_demographics.tex}{Column~(1) reports shares for the 2020 cross-section; column~(2) reports shares pooled across all survey years.}
-\FloatBarrier
+\par The data suggests that more than half of the sample has at least some college, and less than a third of the respondents are working full-time. Most respondents are married and were born in the United States. In terms of geographic location, respondents seem to be concentrated in the South census region. 
+
+\begin{table}[H]
+\centering
+\caption{\textbf{Sample Demographics}}
+\label{tab:39_reg_sample_demographics}
+\begin{threeparttable}
+\begingroup
+\setlength{\tabcolsep}{4pt}%
+\renewcommand{\arraystretch}{0.94}%
+\resizebox{\textwidth}{!}{%
+\input{../../Code/Descriptive/Tables/39_reg_sample_demographics.tex}%
+}%
+\endgroup
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item \ChapterTableNoteText{Column~(1) reports shares for the 2020 cross-section; column~(2) reports shares pooled across all survey years.}%
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
 
 
 \subsection{Descriptive statistics for returns to net wealth}
 
-\par Since the regression analysis focuses on returns to net wealth, Figure~\ref{fig:39_r5_netwealth_pct}, Table~\ref{tab:39_r5_age_bin}, Table~\ref{tab:39_r5_educ_cat}, and Figure~\ref{fig:39_r5_lf_year} describe the distribution of returns conditional on net wealth, age, and years of schooling. 
+ 
+\par Since regression analysis focuses on returns to net wealth, this section will offer a number of decompositions of returns to net wealth by wealth, age, employment, and education. 
 
 \subsubsection{Return vs.\ net wealth}
+
+\par Figure~\ref{fig:39_r5_netwealth_pct} is the appropriate place to read the raw relationship between returns and wealth in the sample. For returns to net wealth, that descriptive relationship appears fairly weak and close to flat, with at most a slight positive tilt in the fitted line. That said the observations towards the ends of the net wealth distribution do seem to exhibit the \textit{scale dependence} result found in the literature regarding returns.
 
 \begin{figure}[H]
 \centering
@@ -372,14 +397,16 @@ where $y^{net}_{it}$ is the interest income and dividends on core and retirement
 \end{figure}
 \FloatBarrier
 
-\par Figure~\ref{fig:39_r5_netwealth_pct} is the appropriate place to read the raw relationship between returns and wealth in the sample. For returns to net wealth, that descriptive relationship appears fairly weak and close to flat, with at most a slight positive tilt in the fitted line. This is distinct from the later FE and CRE figures in the results section, where the vertical axis is no longer raw returns but an estimated household-specific component after time-varying covariates have been partialled out.
-
 \subsubsection{Returns by age and education}
 
-\par Tables~\ref{tab:39_r5_age_bin} and \ref{tab:39_r5_educ_cat} report mean returns (and $N$, SD) by age bin and by education category.\footnote{Age bins are 5-year groups with lower bounds shown in the first column.}
+\par \texttt{Age at Interview} (\texttt{RwAGEY\_B}) and \texttt{Years of Schooling} are control variables which are thought to matter empirically for both trust and returns. Since each of these play a unique role in the HRS data (education time-invariant, age is higher on average due to oversampling of retirees), a decomposition of returns by each of these should be considered. Table~\ref{tab:39_r5_age_bin} reports moments of the returns to net wealth distribution conditional on age. 
 
 \InputStataRegTableCompact{\textbf{Return to Net Wealth by Age Bin}}{tab:39_r5_age_bin}{../../Code/Descriptive/Tables/39_r5_by_age_bin.tex}{Return to net wealth (5\% winsorized), pooled person-years. Age bins are 5-year groups.}
 \FloatBarrier
+
+\par A very interesting feature of the sample is that there are less than twenty respondents between the ages of 30 and 44, and less than 40 respondents between the ages of 30 and 49. The majority of the respondents are between the ages of 60 and 79.
+
+\par Table~\ref{tab:39_r5_educ_cat} reports moments of the returns to net wealth distribution conditional on education. In general, it appears that more years of schooling lead to lower average returns to net wealth, but also less volatility as measured by the standard deviation. Interestingly, the group of respondents that did not complete high school have the highest returns on average in the sample. 
 
 \InputStataRegTableCompact{\textbf{Return to Net Wealth by Education Category}}{tab:39_r5_educ_cat}{../../Code/Descriptive/Tables/39_r5_by_educ_cat.tex}{Return to net wealth (5\% winsorized), pooled person-years. Education categories are constructed from RAND HRS years of education: Less HS ($<12$), HS Grad ($=12$), Some College ($13$--$15$), College ($=16$), Postgrad ($>16$).}
 \FloatBarrier
@@ -398,7 +425,7 @@ where $y^{net}_{it}$ is the interest income and dividends on core and retirement
 
 \subsection{Trust and returns to net wealth}
 
-\par The scatterplot for trust and returns to net wealth suggest there is some evidence of a hump-shaped relationship. 
+\par Establishing an empirical relationship between trust and returns is a major goal of this paper. To begin in this direction, I inspect the relationship between trust responses and computed returns to net wealth values for the sample. Figure~\ref{fig:39_r5_vs_trust} suggests some evidence of a hump-shaped relationship between trust and returns to net wealth, as the highest return values seem to be concentrated at the moderate trust ranges.
 
 \begin{figure}[H]
 \centering
