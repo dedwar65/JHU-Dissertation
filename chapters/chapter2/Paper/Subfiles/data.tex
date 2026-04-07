@@ -7,10 +7,18 @@
 
 \subsection{Asset classes and portfolio definitions}
 
-\par The HRS asks a number of questions aimed at measuring household wealth and portfolio composition in the sample. I collect data on i) \textbf{interest income and dividends}, ii) \textbf{capital gains}, iii) \textbf{net investment flows}, and iv) \textbf{wealth holdings of the previous period}, all of which are required to define the desired measure of household returns. Since population-level administration data on these objects for individual taxpayers are not available in the United States, it is important to understand each component needed in the return calculation. This will help to determine whether or not our measured distribution of returns in this dataset is sensible. To understand what portfolios are accruing returns, we will let the structure of the HRS questions guide how we define returns to specific asset classes for which the survey collects data. From there, portfolios are defined as collections of these defined asset classes. 
+\par The HRS asks a number of questions aimed at measuring household wealth and portfolio composition in the sample. I collect data on:
+\begin{enumerate}
+  \item \textbf{Interest income and dividends}
+  \item \textbf{Capital gains}
+  \item \textbf{Net investment flows}
+  \item \textbf{Wealth holdings of the previous period}
+\end{enumerate}
+All of which are required to define the desired measure of household returns. Since population-level administration data on these objects for individual taxpayers are not available in the United States, it is important to understand each component needed in the return calculation. This will help to determine whether or not our measured distribution of returns in this dataset is sensible. To understand what portfolios are accruing returns, we will let the structure of the HRS questions guide how we define returns to specific asset classes for which the survey collects data. From there, portfolios are defined as collections of these defined asset classes.
 
 
 \subsubsection{Interest income and dividends}
+\label{sssec:interest_income_dividends}
 
 \par The HRS RAND product has a distinct way of measuring the interest income and dividends received on the main asset classes, such as stocks and bonds, private business and real estate. In particular, there is a variable (\texttt{HwICAP}) in the survey that measures \texttt{Household Capital Income}:
 
@@ -38,9 +46,29 @@
 
 \subsubsection{Capital gains}
 
-\par The possible asset classes for which capital gains can be computed in the HRS are i) primary residences, ii) secondary residences, iii) other real estate, iv) private business, v) IRA/Keogh (or \say{retirement}), vi) stocks/mutual funds, vii) bonds, viii) checking/savings/money market, ix) cds/t-bills, x) vehicles, xi) other assets. The possible liabilities are i) mortgages on primary residence, ii) mortgage on secondary residence, iii) other home loans, and iv) total other debt.  
+\par Possible assets for which capital gains can be computed in the HRS are:
+\begin{enumerate}
+  \item \texttt{Net value of primary residences} (\texttt{HwATOTH})
+  \item \texttt{Net value of secondary residences} (\texttt{HwANETHB})
+  \item \texttt{Net value of real estate (not primary residence)} (\texttt{HwARLES})
+  \item \texttt{Net value of business} (\texttt{HwABSNS})
+  \item \texttt{Net value of IRA, Keogh accounts} (\texttt{HwAIRA})
+  \item \texttt{Net value of stocks, mutual funds, and investment trusts} (\texttt{HwASTCK})
+  \item \texttt{Net value of bonds and bond funds} (\texttt{HwABOND})
+  \item \texttt{Net value of checking, savings, or money market accounts} (\texttt{HwCHCK})
+  \item \texttt{Net value of CD, government savings bonds, and T-bills} (\texttt{HwACD})
+  \item \texttt{Net value vehicles} (\texttt{HwATRAN})
+  \item \texttt{Net value of other savings} (\texttt{HwAOTHR})
+\end{enumerate}
 
-\par Capital gains for each asset class are computed as the estimated change in valuation across survey waves. The general trend is that these changes move substantially over time. In the panel (Figure~\ref{fig:cg_core_assets_panels}), business, stocks, and other real estate all show large cyclical swings and end the sample at levels above where they begin, while safe assets (bonds + checking/savings + CDs/T-bills) are flatter and lower-volatility by comparison.
+\par Possible liabilities are:
+\begin{enumerate}
+  \item \texttt{Mortgage debt, primary residence} (\texttt{HwAMORT})
+  \item Other \texttt{home loans} (\texttt{HwAHMLN})
+  \item \texttt{Total other debt} (\texttt{HwADEBT})
+\end{enumerate}
+
+\par Capital gains for each asset is calculated as the estimated change in valuation across survey waves. Figure~\ref{fig:cg_core_assets_panels} shows the mean (blue) and median (red) for each wave of the survey for each possible asset.  
 
 \begin{figure}[H]
 \centering
@@ -54,7 +82,6 @@
 \small\textbf{Stocks and mutual funds}\par\vspace{0.25em}
 \includegraphics[width=\textwidth]{../../Code/Descriptive/Figures/cg_stk_mean_median_by_year.png}
 \end{minipage}
-
 \vspace{0.6em}
 \begin{minipage}[t]{0.48\textwidth}
 \centering
@@ -69,6 +96,9 @@
 \caption{Capital gains in core assets, by year}
 \label{fig:cg_core_assets_panels}
 \end{figure}
+
+\par The \texttt{Net value of business} and \texttt{Net value of safe assets} each show a large decrease in average capital gains across respondents in the 2020 wave of the survey, likely an indication of the effects of the COVID-19 pandemic. The \texttt{Net value of real estate (not primary residence)} shows a similar decline in mean capital gains but in the 2010 wave of the survey, likely an indication of the effects of the Global Financial Crisis in 2008. Interestingly, \texttt{Net value of stocks, mutual funds, and investment trusts} shows no significant fall in average capital gains; notably, they begin at less than $-\$10{,}000$ and finish at around $\$10{,}000$ by the final wave of the survey. The \texttt{Net value of IRA, Keogh accounts} also starts out negative but ends well above $\$20{,}000$.
+
 \FloatBarrier
 
 \begin{figure}[H]
@@ -79,7 +109,7 @@
 \end{figure}
 \FloatBarrier
 
-\par Another feature that is apparent by taking a look at capital gains is that, most respondent hold no assets in a particular class. This can be seen by the red median line at $0$ for most waves. In the residential panel (Figure~\ref{fig:cg_residential_panels}), the primary-residence series is much larger in level and volatility than the secondary-residence series, and only primary residence shows a clearly positive median in some years. This is another sign that the data is sensible so far -- large amount of non-participation despite evidence of returns is consistent with the empirically documented equity premium puzzle.
+\par An important finding from inspecting the capital gains data is that most of the respondents do not have assets. This can be seen by the red median line at $0$ for most waves. This is another sign that the data are sensible so far -- a large amount of non-participation despite evidence of returns is consistent with the empirically documented equity premium puzzle: the inability to rationalize the excess premium return earned by risky assets over riskless assets.\footnote{See \cite{Mehra2003} for a review of this literature.}
 
 \begin{figure}[H]
 \centering
@@ -98,21 +128,39 @@
 \end{figure}
 \FloatBarrier
 
-\par Notably, the synchronized dip around 2008--2010 for primary residence, secondary residence, and other real estate is also a good sign regarding how reliably measured the data is.
+\par Notably, the residential panel (Figure~\ref{fig:cg_residential_panels}) highlights that the mean of \texttt{Net value of primary residences} is much higher in level and volatility than the other assets, and is the only series with a clearly positive median in some years. The synchronized dip around 2008--2010 for the housing-related assets is another good sign regarding how reliably measured the data is.
 
 %%%%%%%
 
 \subsubsection{Net investment flows}
 
-\par Net investment flows are vital in computing returns accurately because capital gains and interest income can miss other flows of value into a given asset class. In the HRS dataset, net investment flows are the only variable relevant to the returns calculation that RAND did not clean and process. For this reason, there are substantially less observation for this variable per asset class than the others. To work around this, I do two things. First, I process the net investment flow per asset class myself by using the associated flag variable (asking yes or no if an individual has \say{bought or sold since the previous wave}) for each variable. Second, I assume that if an individual receives interest income on that asset class, but their flow in nonmissing, then the nonmissing flow to that asset class is treated as 0.\footnote{Non-missing interest income (and capital gains) indicate participation within an asset class.}
+\par Net investment flows are vital in accurately computing returns because capital gains and interest income can miss other flows of value in a given asset class. Using the definitions of interest income and dividends from Subsubsection~\ref{sssec:interest_income_dividends}, I use these flows to construct net investment flows into three asset classes and two constructed portfolios:
+
+\begin{enumerate}
+  \item \textbf{Core assets}
+  \item \textbf{Retirement assets}
+  \item \textbf{Residential assets}
+  \item \textbf{Core and residential assets}
+  \item \textbf{Net wealth}
+\end{enumerate}
+
+\par An important concern regarding the RAND HRS Longitudinal product is that \textit{net investment flows are the only variable relevant to the calculation of returns is not offered as a cleaned and processed variable}. Instead, the net investment flow data for each asset must be merged in using the \href{https://hrsdata.isr.umich.edu/data-products/rand}{RAND HRS Fat File} for each survey wave. For this reason, there are substantially less observations for this variable per asset class than the others. 
+
+\par To resolve this issue, I do two things. First, I process the net investment flow variables per asset class myself using the associated flag variable (asking yes or no if an individual has \say{bought or sold since the previous wave}) for each variable. For example, \texttt{Personal funds into business amount} (\texttt{wR050}) and \texttt{Private business selling price amount} (\texttt{wR055}) represent how much a respondent invested in or sold of their private business assets. Importantly, there are accompanying variables \texttt{Personal funds into business} (\texttt{wR049}) and \texttt{Sell any part interest in private business} (\texttt{wR054}) where respondents say whether they invested or sold any part of their business. This flag variable increases the number of observations for net investment flows for each asset by setting missing values to zero if they respond ``NO'' to the flag variable. 
 
 
-\par With this in mind, I present a figure of net investment flows into the assets available in the dataset. As you can see, the magnitudes for flows into a given class are comparable. I use these flows to construct net investment flows into i) \textbf{core assets}, ii) \textbf{retirement assets}, iii) \textbf{residential assets}, iv) \textbf{core and residential assets}, and v) \textbf{net wealth}.
+\par For the second step in handling missing values for net investment flows in a given asset class, retirement assets provide a useful example. In each wave, the HRS has three separate variables for net investment flows into IRA/Keogh accounts (\texttt{wQ171\_1}, \texttt{wQ171\_2}, and \texttt{wQ171\_3}). After using the accompanying flag variables (\texttt{wQ170\_1}, \texttt{wQ170\_2}, and \texttt{wQ170\_3}) to set some missing amount variables to zero, I define the \textbf[{net investment flow for retirement assets} as the sum of these three components. So, if only one or two of the three retirement flow variables are observed, the retirement flow is simply the sum of the nonmissing components and it remains missing only if all three retirement flow variables are missing. 
+
+\par Recall that net investment flows for business, stocks, and other real estate assets are combined into a \textbf{net investment flow for core assets}. The relevant net investment flow variables for primary and secondary residential assets are grouped to create \textbf{net investment flows for residential assets}. \textbf{Net investment flows to net wealth} are defined by combining the core, retirement, and residential asset classes. So, this second method of handling missing values by require all components in a sum to be missing for the entire sum to be missing holds true for singular assets (the IRA/Keough example), for asset classes (core assets would be missing if all subcomponents are missing), and for the broader portfolio definitions. 
+
+
+\par With this in mind, I present a figure of net investment flows into the assets available in the dataset (Figure~\ref{fig:flows_by_asset_mean_by_year}). In general, average net investment flows across respondents into the stocks and IRA asset classes are trending upward over the period. Net investment flows into businesses are particularly volatile and flows into residential assets is falling across the period.   
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.8\textwidth]{../../Code/Descriptive/Figures/flows_by_asset_mean_by_year.png}
 \caption{Flows by asset, mean by year}
+\label{fig:flows_by_asset_mean_by_year}
 \end{figure}
 \FloatBarrier
 
