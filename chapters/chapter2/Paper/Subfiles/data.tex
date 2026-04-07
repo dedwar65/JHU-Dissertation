@@ -151,10 +151,10 @@ All of which are required to define the desired measure of household returns. Si
 
 \par For the second step in handling missing values for net investment flows in a given asset class, retirement assets provide a useful example. In each wave, the HRS has three separate variables for net investment flows into IRA/Keogh accounts (\texttt{wQ171\_1}, \texttt{wQ171\_2}, and \texttt{wQ171\_3}). After using the accompanying flag variables (\texttt{wQ170\_1}, \texttt{wQ170\_2}, and \texttt{wQ170\_3}) to set some missing amount variables to zero, I define the \textbf{net investment flow for retirement assets} as the sum of these three components. So, if only one or two of the three retirement flow variables are observed, the retirement flow is simply the sum of the nonmissing components and it remains missing only if all three retirement flow variables are missing. 
 
-\par Recall that net investment flows for business, stocks, and other real estate assets are combined into a \textbf{net investment flow for core assets}. The relevant net investment flow variables for primary and secondary residential assets are grouped to create \textbf{net investment flows for residential assets}. \textbf{Net investment flows to net wealth} are defined by combining the core, retirement, and residential asset classes. So, this second method of handling missing values---requiring all components in a sum to be missing for the entire sum to be missing---holds for singular assets (the IRA/Keogh example), for asset classes (core assets would be missing if all subcomponents are missing), and for the broader portfolio definitions. 
+\par Recall that net investment flows for business, stocks, and other real estate assets are combined into a \textbf{net investment flow for core assets}. The relevant net investment flow variables for primary and secondary residential assets are grouped to create \textbf{net investment flows for residential assets}. \textbf{Net investment flows to net wealth} are defined by combining the core, retirement, and residential asset classes. This second step towards handling missing values -- requiring all components in a sum to be missing for the entire sum to be missing -- holds for singular assets (the IRA/Keogh example), for asset classes (core assets would be missing if all subcomponents are missing), and for the broader portfolio definitions. 
 
 
-\par With this in mind, I present a figure of net investment flows into the assets available in the dataset (Figure~\ref{fig:flows_by_asset_mean_by_year}). In general, average net investment flows across respondents into the stocks and IRA asset classes are trending upward over the period. Net investment flows into businesses are particularly volatile and flows into residential assets is falling across the period.   
+\par With this in mind, I present a figure of net investment flows into the assets available in the data set. Figure~\ref{fig:flows_by_asset_mean_by_year} shows the evolution of net investment flows, averaged between respondents, into each of the assets over time. In general, mean net investment flows into stocks and retirement assets are trending upward over the period. Net investment flows into businesses are particularly volatile and flows into residential assets are falling across the period.   
 
 \begin{figure}[H]
 \centering
@@ -166,7 +166,7 @@ All of which are required to define the desired measure of household returns. Si
 
 \subsubsection{Defining wealth for assets and portfolios}
 
-\par The final component needed for the returns calculations is the wealth held by a respondent (in the previous period). This is caclulated as the total stock in the asset (core, retirement, and residential) and summing among these creates the stock of wealth in the given portfolios (core and retirement assets, net wealth). Figure ~\ref{fig:wealth_mean_by_year_panels} shows mean wealth within these narrowly defined asset classes for each year of the sample. Interestingly, retirement assets seem to perform the worst in terms of average returns. Core assets seem to offer the best performance, and all asset classes see a downward dive leading up to 2010 -- historically accurate in the context of investment performance during the global financial crisis.
+\par The final component needed for the returns calculations is the wealth held by a respondent (in the previous period). This is measured as the total stock in the given asset classes (core, retirement, and residential), and summing among these creates the stock of wealth in the given portfolios (core and retirement assets, net wealth). For example, \texttt{Net value of primary residences} and \texttt{Net value of primary residences} from the previous period are summed together as a measure of \textbf{wealth held in residential assets at the beginning of the previous period}. Figure ~\ref{fig:wealth_mean_by_year_panels} shows the mean wealth within these narrowly defined asset classes for each year of the survey. 
 
 \begin{figure}[H]
 \centering
@@ -183,50 +183,52 @@ All of which are required to define the desired measure of household returns. Si
 \end{figure}
 \FloatBarrier
 
-\par I follow recent literature using Norwegian administrative tax data at the population level and and using PSID in terms of the components used to construct a measure of returns. However, I take seriously the structure of the dataset I am working with(the HRS RAND longitudinal file) in defining the portfolio/asset class for which the returns are being accrued to. As mentioned before, core assets is the most narrowly defined asset class here because interest income and dividends does not disaggregate into the asset classes: stocks, bonds, private business, IRA/Keogh.
+\par Retirement assets seem to perform the worst in terms of average holdings. This may not be surprising, as the survey over samples older households and these households draw down their assets for consumption during retirement, in general. Core assets seem to offer the best performance, and all asset classes see a downward dive leading up to 2010 -- historically accurate in the context of investment performance during the global financial crisis.
 
- The following formula from \cite{Daminato2024} serves as motivation for the return measures defined using the HRS data: $$ r_t = \frac{y^c_t + cg_t -F_t -y^d_t}{A_{t-1} + .5F_t}   $$ where $y^c_t$ interest income and dividends, capital gains $cg_t$ measured as the difference between reported stock across waves, $F_t$ net investment flows, $y^d_t$ payments on debt (in the RAND longitudinal file, the variables were mentioned are all in net terms so this variable was $0$), and $A_{t-1}$ total net wealth at beginning of previous period.
+ \par The following formula from \cite{Daminato2024} serves as a useful baseline for the return measures defined using HRS data: $$ r_t = \frac{y^c_t + cg_t -F_t -y^d_t}{A_{t-1} + .5F_t}   $$ where $y^c_t$ interest income and dividends, capital gains $cg_t$ measured as the difference between the reported stocks across waves of the survey\footnote{The capital gains to respondent $i$ for an asset $j$ is $V_{i,j,t} - V_{i,j,t-1}$, where $V_{i,j,t}$ is the value of the j-th asset for the i-th respondent in the t-th wave of the survey.}, $F_t$ net investment flows, $y^d_t$ payments on debt (in the RAND Longitudinal file, the variables mentioned are all in net terms, so this variable is equal to $0$), and $A_{t-1}$ total net wealth at the beginning of the previous period.
 %%%%%%%%%%
+
+\par Although this return measure is useful, the RAND HRS Longitudinal product has a unique structure that will guide how I define the asset classes and portfolios for which returns are accrued. As mentioned before, core assets are the most narrowly defined asset class here because interest income and dividends do not disaggregate into the asset classes: stocks, bonds, private business, IRA/Keogh.
 
  \subsubsection{Narrow asset classes}
  
-\par Recall that we only see interest income and dividends for core assets and retirement assets. Since this is an important component of the returns calculation, we construct the narrowest return measure on core assets. To do so, I keep track of all asset classes captured in the capital gains variable\footnote{Those asset classes are: other real estate, business/farm, stocks/mutual funds, bonds, checking/savings, and CDs/t-bills.} and aggregate the capital gains and net investment flows for this group of assets.
+\par Recall that we define the interest income and dividends to core assets as the RAND variable for \texttt{Household Capital Income} (\texttt{HwICAP}), which sums together the interest income and dividends to the following underlying assets of interest: stocks, bonds, business, and real estate. Since interest income is an important component of the return calculation, we define the returns to core assets in the following way. I find the variables capital gains and net investment flows to each of these assets and aggregate them to reach a measure of capital gains on core assets and net investment flows to core assets.  
 
-\par Returns to core assets are given by
+\par The returns to the core assets are given by
 
 $$ r^{core}_{it} = \frac{y^{core}_{it} + cg^{core}_{it} - F^{core}_{it}}{A^{core}_{i,t-1} + .5F^{core}_{it}}   $$
 
-where $y^{core}_{it}$ is the interest income and dividents on the core assets, $cg^{core}_{it}$ are the capital gains on the core assets\footnote{where the capital gains for each asset class is $V_{it} - V_{i,t-1}$, where $V_{it}$ is the value of the asset (business or stock or real estate) for the i-th respondent in the t-th wave of the survey.}, $F^{core}_{it}$ are the net investment flows on core assets, and importantly, $A^{core}_{i,t-1}$ is the total value of the core assets in the previous period.
+where $y^{core}_{it}$ is the interest income and dividends on the core assets, $cg^{core}_{it}$ are the capital gains on the core assets, $F^{core}_{it}$ are the net investment flows to core assets, and importantly, $A^{core}_{i,t-1}$ is the total wealth held in core assets in the previous period.
 
-\par The rest of the return measures are defined similarly. In the HRS data, we can see income on retirement assets as well. This allows us to define a return measure for retirement assets:
+\par The rest of the return measures are defined similarly. In the HRS data, we also observe income on retirement assets. This allows us to define a return measure for retirement assets
 
 $$ r^{ret}_{it} = \frac{y^{ret}_{it} + cg^{ret}_{it} - F^{ret}_{it}}{A^{ret}_{i,t-1} + .5F^{ret}_{it}}   $$
 
-where $y^{ret}_{it}$ is the interest income and dividents on the retirement assets, $cg^{ret}_{it}$ are the capital gains on the retirement assets, $F^{ret}_{it}$ are the net investment flows on retirement assets, and $A^{ret}_{i,t-1}$ is the total value of the retirement assets in the previous period.
+where $y^{ret}_{it}$ is the interest income and dividends on the retirement assets, $cg^{ret}_{it}$ are the capital gains on retirement assets, $F^{ret}_{it}$ are the net investment flows to retirement assets, and $A^{ret}_{i,t-1}$ is the total wealth held in retirement assets in the previous period.
 
-\par Based on the modules offered in a given wave of the survey, assume that there are no interest income or dividends to either primary and secondary residential assets, so that the interest income and dividends accrued to residential assets is 0 in a given period $(y^{res}_{it}=0)$. With this in mind, returns to residential assets are defined as:
+\par Based on the modules offered in a given survey wave, I assume that there are no interest income or dividends to primary and secondary residential assets, so that the interest income and dividends accrued to residential assets are 0 in a given period $(y^{res}_{it}=0)$. Thus, I define returns to residential assets as
 
 $$ r^{res}_{it} = \frac{cg^{res}_{it} - F^{res}_{it}}{A^{res}_{i,t-1} + .5F^{res}_{it}}   $$
 
-where  $cg^{res}_{i,t}$ are the capital gains on the residential assets, $F^{res}_{i,t}$ are the net investment flows on residential assets (including improvement costs), and $A^{res}_{i,t-1}$ is the total value of the residential assets in the previous period.
+where  $cg^{res}_{i,t}$ are the capital gains on the residential assets, $F^{res}_{i,t}$ are the net investment flows to residential assets (including improvement costs), and $A^{res}_{i,t-1}$ is the total value of the residential assets in the previous period.
 
 \subsubsection{Broad asset classes}
 
-\par After defining returns for narrow asset classes (i.e. returns to a single asset), I also define return measure for portfolios (returns on multiple assets). The first is for returns to both core and retirement assets: 
+\par After defining the returns for narrow asset classes, I also define the return measure for portfolios (returns on multiple assets). The first portfolio definition is for returns to core and retirement assets: 
 
 $$ r^{coret}_{it} = \frac{y^{coret}_{it} + cg^{coret}_{it} - F^{coret}_{it}}{A^{coret}_{i,t-1} + .5F^{coret}_{it}}   $$
 
-where $y^{coret}_{it}$ is the interest income and dividends on core and retirement assets, $cg^{coret}_{it}$ are the capital gains on core and retirement assets, $F^{coret}_{it}$ are the net investment flows on core and retirement assets, and $A^{coret}_{i,t-1}$ is the total value of core and retirement assets in the previous period.
+where $y^{coret}_{it}$ is the interest income and dividends on core and retirement assets, $cg^{coret}_{it}$ are the capital gains on core and retirement assets, $F^{coret}_{it}$ are the net investment flows to core and retirement assets, and $A^{coret}_{i,t-1}$ is the total wealth held in core and retirement assets in the previous period.
 
-\par Returns to net wealth is given by
+\par The broadest portfolio definition is for total net wealth holdings. Returns to net wealth are given by
 
 $$ r^{net}_{it} = \frac{y^{net}_{it} + cg^{net}_{it} - F^{net}_{it}}{A^{net}_{i,t-1} + .5F^{net}_{it}}   $$
 
-where $y^{net}_{it}$ is the interest income and dividends on core and retirement assets, $cg^{net}_{it}$ are the capital gains on all available asset classes in the survey, $F^{net}_{it}$ are the net investment flows on assets for which it is relevant in the survey (stocks, bonds, business, IRA, residences, and real estate), and $A^{net}_{i,t-1}$ is the total value of the available assets minus liabilities in the previous period\footnote{Mortgages on secondary residences are left out of the list of liabilities since it was an optional question in some waves of the survey.}.
+where $y^{net}_{it}$ is the interest income and dividends on core and retirement assets, $cg^{net}_{it}$ are the capital gains on all available asset classes in the survey, $F^{net}_{it}$ are the net investment flows on assets for which it is relevant in the survey (stocks, bonds, business, IRA, residences, and real estate), and $A^{net}_{i,t-1}$ is the total value of the available assets minus liabilities in the previous period\footnote{\texttt{Value of all mortgages/land contracts (secondary residence)} (\texttt{HwAMRTB}) is an optional question in some survey waves so it is omitted from the list of liabilities used to compute net wealth.}.
 
 \subsubsection{The distribution of measured returns}
 
-\par I present the means for the return measures in the following figure ~\ref{fig:returns_mean_by_year_panels}. I group them by the returns at the asset level (core, retirement, residential) and at the portfolio level (core, core and retirement, net wealth). %%%%describe%%%%%%
+\par I present the the evolution of the return measures, averaged over the respondents, over time in the following figure ~\ref{fig:returns_mean_by_year_panels}. I group them by asset classes (core, retirement, residential) and portfolio definitions (core and retirement, net wealth). %%%%describe%%%%%%
 
 \begin{figure}[H]
 \centering
@@ -242,6 +244,8 @@ where $y^{net}_{it}$ is the interest income and dividends on core and retirement
 \label{fig:returns_mean_by_year_panels}
 \end{figure}
 \FloatBarrier
+
+\par Mean returns to core assets seem to have the best performance in terms of asset classes, followed by retirement and then residential assets. For portfolios, returns to net wealth are lower than returns to core and retirement assets on average. Across asset classes (and thus portfolios), there is a decline in returns on average in 2010, which is likely an artifact of the economic downturn associated with the Global Financial Crisis of 2008.
 
 \par Figure~\ref{fig:returns_histogram_components_pooled} shows the distribution of returns across person-years, pooled over survey waves (2002--2022), for the three asset classes: core, retirement, and residential. 
 
@@ -267,7 +271,9 @@ where $y^{net}_{it}$ is the interest income and dividends on core and retirement
 \end{figure}
 \FloatBarrier
 
-Figure~\ref{fig:returns_histogram_agg_pooled} shows the distribution of returns across person-years, pooled over survey waves (2002--2022), for the two portfolio measures used below: core and retirement assets together, and net wealth. In general, this attempt is encouraging, as its shape (in particular, for returns to net wealth) closely resembles early estimates of the empirical distribution of individual realized returns in the Norwegian population data.
+\par Notably, the distribution of returns to core assets has a right tail with extremely large values relative to the distribution of returns to retirement and residential assets. Each distribution seems to be centered near $0$, which is a good sign. The residential assets feature a signifant share of respondents earning a positive return; this is in line with the empirical fact that home ownership in the United States is relatively common when compared to investment into other asset classes. 
+
+\par Figure~\ref{fig:returns_histogram_agg_pooled} shows the distribution of returns for the constructed portfolio measures: core and retirement assets and net wealth. In general, these figures are encouraging, as its shape closely resembles other estimates of the empirical distribution of individual realized returns using other datasets. 
 
 \begin{figure}[H]
 \centering
@@ -284,9 +290,7 @@ Figure~\ref{fig:returns_histogram_agg_pooled} shows the distribution of returns 
 \end{figure}
 \FloatBarrier
 
-\par %%short paragraph about outliers - come back to this%%
-
-\par %%describe table about the dist of returns summary %%%%
+\par Table~\ref{tab:returns_portfolio_moments_pooled} summarizes the distribution of returns (mean, standard deviation, skewness, kurtosis and selected percentiles) for each asset class and portfolio constructed in the pooled sample. A major takeaway from this table is that \textit{the mean returns across both asset classes and portfolios are much higher than the median}. This suggests that there are a significant number of respondents with computed returns that are extremely large.
 
 \input{../../Code/Regressions/Other/returns_portfolio_moments_pooled.tex}
 \FloatBarrier
