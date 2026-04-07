@@ -3,7 +3,14 @@
 \section{Data}
 \label{sec:data}
 
-\par For the statistical analysis in this paper, I use the RAND Longitudinal version of the Household Retirement Survey (HRS) for the years 2002-2022. First, I define asset classes and portfolios, which will be guided by the unique structure of the HRS data set. Then, I provide descriptive statistics on the underlying return components, as well as returns by asset and portfolio. From there, I discuss some statistics on the demographic variables which form the set of control variables in the regression models. Finally, I look at the relationship between returns to net wealth and a number of variables (net wealth, age, education, trust) and describe portfolio compositions across respondents. 
+\par For the statistical analysis in this paper, I use the RAND Longitudinal version of the Household Retirement Survey (HRS) for the years 2002-2022. First, I define asset classes and portfolios, which will be guided by the unique structure of the HRS data set. Then, I provide descriptive statistics on the underlying return components, as well as returns by asset and portfolio. From there, I discuss some statistics on the demographic variables which form the set of control variables in the regression models. Finally, I look at the relationship between returns to net wealth and a number of variables (net wealth, age, education, trust) and describe portfolio compositions across respondents.
+
+\subsection{Sample restrictions}
+\label{ssec:sample-restrictions}
+
+\par After merging the RAND longitudinal extract with the constructed return and wealth fields, the analysis-ready wide file contains about 45{,}200 respondent identifiers; reshaping to a long person--year panel yields about 543{,}000 rows spanning the interview years used here. Most core RAND covariates are observed for a large share of those rows, but usable returns and trust do not line up with that full rectangle. Wave-specific returns to net wealth (5\% winsorized within survey year) are nonmissing for about 137{,}000 person-years: many observations drop out in a given wave when wealth, flows, or other return ingredients are incomplete. Generalized trust is measured only in the 2020 module; in the long panel, 900 respondents have a nonmissing 2020 trust response, and that value is carried on their other waves so that about 10{,}800 person-year rows carry nonmissing trust for estimation.
+
+\par The pooled descriptives in this section (histograms, binscatter figures, return-by-age and return-by-education tables, and the portfolio composition tables below) restrict person-years to the same listwise-complete sample as a benchmark pooled OLS of 5\% winsorized returns to net wealth on quadratic trust with the baseline time-varying controls and education categories only---2{,}919 person-years. Of those, 449 rows are 2020 interviews and enter the trust histogram and the race-by-trust summary (all 449 have nonmissing generalized trust). The main regression tables in Section~\ref{sec:results} use the specifications printed there (larger or smaller $N$ by column); the extended correlated-random-effects column for net wealth uses about 2{,}900 person-years. When the dissertation build sets a single unified Chapter~2 sample (extended CRE person-years), the corresponding flag yields about 2{,}900 person-years for tables and figures tied to that mode.
 
 \subsection{Asset classes and portfolio definitions}
 
@@ -290,7 +297,7 @@ where $y^{net}_{it}$ is the interest income and dividends on core and retirement
 \end{figure}
 \FloatBarrier
 
-\par Table~\ref{tab:returns_portfolio_moments_pooled} summarizes the distribution of returns (mean, standard deviation, skewness, kurtosis and selected percentiles) for each asset class and portfolio constructed in the pooled sample. A major takeaway from this table is that \textit{the mean returns across both asset classes and portfolios are much higher than the median}. This suggests that there are a significant number of respondents with computed returns that are extremely large.
+\par Table~\ref{tab:returns_portfolio_moments_pooled} summarizes the distribution of returns (mean, standard deviation, skewness, kurtosis and selected percentiles) for each asset class and portfolio, pooling person-years in the same sample as Figure~\ref{fig:returns_histogram_components_pooled} and the return-by-age and return-by-education tables (pooled OLS sample for $r^{net}$ on generalized trust with education categories and standard panel controls). A major takeaway from this table is that \textit{the mean returns across both asset classes and portfolios are much higher than the median}. This suggests that there are a significant number of respondents with computed returns that are extremely large.
 
 \input{../../Code/Regressions/Other/returns_portfolio_moments_pooled.tex}
 \FloatBarrier
@@ -301,6 +308,25 @@ where $y^{net}_{it}$ is the interest income and dividends on core and retirement
 
 \par The HRS offers a suite of trust questions in \say{Section V: Modules} section of the 2020 survey. There are a total of 8 questions, asking respondents to say on a scale of 1-10 \say{how much do you trust people in general?} and of their trust in other features of American life relating to healthcare, finance, and media. These questions were only asked in that year. This is an issue, since the panel structure of the HRS allows me to estimate the persistent component of returns, variation in the trust measure would be ideal if it matters for trust. That said, in the panel setting, we can assume that trust, like education, is fixed over time.\footnote{Literature on trust talks about how history of being cheated or treated fairly form individuals' trust over time. If this is true and at some point, one learns enough an forms their trust level, then a sample with an overrepresentation of older household is a reasonable environment to assume constant trust levels.}
 
+\par Figure~\ref{fig:39_trust_general_2020_hist} shows the distribution of responses to the generalized-trust question (scale 1--10) for regression-sample respondents in the 2020 interview wave.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.72\textwidth]{../../Code/Descriptive/Figures/39_trust_general_2020_hist.png}
+\caption{Distribution of generalized trust among sample respondents (2020)}
+\label{fig:39_trust_general_2020_hist}
+\end{figure}
+\FloatBarrier
+
+\par Figure~\ref{fig:trust_mean_by_race_eth_2020} summarizes mean generalized trust (1--10) by race and ethnicity in the 2020 interview wave, for respondents with nonmissing trust and race/ethnicity. The pattern is descriptive background for the control set used in the regressions, where race and ethnicity enter as categorical covariates.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.72\textwidth]{../../Code/Descriptive/Figures/trust_mean_by_race_eth_2020.png}
+\caption{Mean generalized trust by race/ethnicity (2020)}
+\label{fig:trust_mean_by_race_eth_2020}
+\end{figure}
+\FloatBarrier
 
 % Tighter layout for wide tables (same macro as results.tex/extensions.tex/appendix.tex).
 \providecommand{\ChapterTableNoteText}[1]{\parbox[t]{0.94\textwidth}{#1}}
@@ -314,9 +340,9 @@ where $y^{net}_{it}$ is the interest income and dividends on core and retirement
 \footnotesize
 \setlength{\tabcolsep}{4pt}%
 \renewcommand{\arraystretch}{0.94}%
-\begin{adjustbox}{max width=\textwidth}
+\resizebox{\textwidth}{!}{%
 \input{#3}%
-\end{adjustbox}
+}%
 \endgroup
 \begin{tablenotes}[flushleft]
 \footnotesize
@@ -386,18 +412,18 @@ where $y^{net}_{it}$ is the interest income and dividends on core and retirement
 
 \par Table~\ref{tab:41_summary_portfolios} shows that participation is highest in safe assets, residential assets, and the broader core-asset grouping, while direct participation in business and other real estate is much less common. In terms of composition, residential assets account for the largest average share of household balance sheets, followed by core assets and then retirement assets. Debt is also economically important in the pooled sample: over half of person-years involve some debt, and the leverage measures show a long right tail, especially for long-term and total debt.
 
-\InputStataRegTableCompact{\textbf{Participation and Portfolio Composition}}{tab:41_summary_portfolios}{../../Code/Analysis/Tables/41_table5_summary_portfolios.tex}{All shares are expressed as fractions of gross wealth. Participation is the fraction of person-years with a strictly positive holding. Leverage ratios can exceed one when liabilities exceed gross assets.}
+\InputStataRegTableCompact{\textbf{Participation and Portfolio Composition}}{tab:41_summary_portfolios}{../../Code/Analysis/Tables/41_table5_summary_portfolios.tex}{All shares are expressed as fractions of gross wealth. Participation is the fraction of person-years with a strictly positive holding. Person-years match the pooled regression sample used for Tables~\ref{tab:39_r5_age_bin} and~\ref{tab:39_r5_educ_cat}. Leverage ratios can exceed one when liabilities exceed gross assets. \input{../../Code/Analysis/Tables/41_table5_portfolio_N_footnote.tex}}
 \FloatBarrier
 
 \par Table~\ref{tab:41_asset_shares_by_wealth} shows that asset composition shifts sharply across the wealth distribution. At the bottom, balance sheets are dominated by debt, with very little exposure to business, stocks, or other real estate. Moving up the distribution, risky assets become more important: stocks, business wealth, and other real estate all rise with wealth, and at the very top business ownership becomes especially prominent. This is consistent with the idea that observed portfolio exposure is highly heterogeneous across households.
 
-\InputStataRegTableCompact{\textbf{Asset Composition by Wealth (Core) Fractiles}}{tab:41_asset_shares_by_wealth}{../../Code/Analysis/Tables/41_table6_asset_shares_by_wealth.tex}{Mean share of gross wealth in core assets in each of the asset/liability classes, computed as fractile of the core wealth distribution. Fractile boundaries are based on rank within the full person-year sample. Safe assets $=$ bonds + checking/saving.}
+\InputStataRegTableCompact{\textbf{Asset Composition by Wealth (Core) Fractiles}}{tab:41_asset_shares_by_wealth}{../../Code/Analysis/Tables/41_table6_asset_shares_by_wealth.tex}{Mean share of gross wealth in core assets in each of the asset/liability classes, computed as fractile of the core wealth distribution. Fractile boundaries use rank within the same pooled regression person-year sample as Tables~\ref{tab:39_r5_age_bin} and~\ref{tab:39_r5_educ_cat}. Safe assets $=$ bonds + checking/saving.}
 \FloatBarrier
 
 \par The broader portfolio aggregates in Table~\ref{tab:41_port_shares_by_wealth} tell a similar story. Residential wealth is the dominant asset for much of the middle of the distribution, while core assets take over at the top, and retirement assets are largest in the upper-middle and upper-tail groups rather than at the very top. Debt shares fall rapidly with wealth, so leverage is concentrated in the lower part of the distribution.
 
 
-\InputStataRegTableCompact{\textbf{Portfolio Composition by Net-Wealth Fractiles}}{tab:41_port_shares_by_wealth}{../../Code/Analysis/Tables/41_table7_port_shares_by_wealth.tex}{Mean share of gross wealth in each broad asset/liability class, computed within pooled net-wealth fractiles. Core $=$ business + stocks + bonds + checking/savings + other real estate. Total debt $=$ long-term debt + other debt.}
+\InputStataRegTableCompact{\textbf{Portfolio Composition by Net-Wealth Fractiles}}{tab:41_port_shares_by_wealth}{../../Code/Analysis/Tables/41_table7_port_shares_by_wealth.tex}{Mean share of gross wealth in each broad asset/liability class, computed within net-wealth fractiles for the same pooled regression person-year sample as Tables~\ref{tab:39_r5_age_bin} and~\ref{tab:39_r5_educ_cat}. Core $=$ business + stocks + bonds + checking/savings + other real estate. Total debt $=$ long-term debt + other debt.}
 \FloatBarrier
 
 \par These composition patterns matter in Section~\ref{sec:exts}, where I revisit the main specifications by using the portfolio shares as a proxy for risk exposure.

@@ -11,9 +11,9 @@
 \label{#2}%
 \begin{threeparttable}
 \small
-\begin{adjustbox}{max width=\textwidth}
+\resizebox{\textwidth}{!}{%
 \input{#3}%
-\end{adjustbox}
+}%
 \begin{tablenotes}[flushleft]
 \footnotesize
 \item \ChapterTableNoteText{#4}%
@@ -31,9 +31,9 @@
 \footnotesize
 \setlength{\tabcolsep}{4pt}%
 \renewcommand{\arraystretch}{0.94}%
-\begin{adjustbox}{max width=\textwidth}
+\resizebox{\textwidth}{!}{%
 \input{#3}%
-\end{adjustbox}
+}%
 \endgroup
 \begin{tablenotes}[flushleft]
 \footnotesize
@@ -43,6 +43,8 @@
 \end{table}%
 }
 
+
+\par \textbf{Figure sample (Extension).} All figures in this section use the same person-year set as the portfolio-share panel models: person-years with nonmissing portfolio shares and debt controls that enter the share-augmented CRE specification.
 
 \par The key point about the documented persistent component to returns is that, even when controlling for risk preferences and exposure, individuals systematic earn different returns on the same assets\footnote{This point is further corroborated by evidence of heterogeneity in returns on safe assets like deposit accounts. An example from the academic literature is \cite{Deuflhard14}, but one can compare rates offered on deposit account at commercial banks like Bank of America versus local banks and see similar discrepancies in everyday life.}. Moreover, the descriptive statistics for mean returns show that returns do not seem stable over the time period (ex.\ Global Financial Crisis). To address this concern, I re-estimate the cross-section (average returns), pooled person-year OLS, and panel (FE and CRE) specifications after augmenting the set of controls with portfolio-share variables (core assets, IRA assets, residential assets, long-term debt, and other debt) fully interacted with year dummies. 
 

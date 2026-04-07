@@ -7,9 +7,9 @@
 \label{#2}%
 \begin{threeparttable}
 \small
-\begin{adjustbox}{max width=\textwidth}
+\resizebox{\textwidth}{!}{%
 \input{#3}%
-\end{adjustbox}
+}%
 \begin{tablenotes}[flushleft]
 \footnotesize
 \item \ChapterTableNoteText{#4}%
@@ -28,9 +28,9 @@
 \footnotesize
 \setlength{\tabcolsep}{4pt}%
 \renewcommand{\arraystretch}{0.94}%
-\begin{adjustbox}{max width=\textwidth}
+\resizebox{\textwidth}{!}{%
 \input{#3}%
-\end{adjustbox}
+}%
 \endgroup
 \begin{tablenotes}[flushleft]
 \footnotesize
@@ -66,7 +66,7 @@
 
 \par In particular, I pooled the observations of the survey together to get a sense of the distribution of incomes measured in the survey. This is captured by Table~\ref{tab:42_income_tabstat}.
 
-\InputStataRegTableCompact{\textbf{Income Distribution Summary Statistics}}{tab:42_income_tabstat}{../../Code/Analysis/Tables/42_table2_income_tabstat.tex}{Real USD, winsorized; summary over person-years.}
+\InputStataRegTableCompact{\textbf{Income Distribution Summary Statistics}}{tab:42_income_tabstat}{../../Code/Analysis/Tables/42_table2_income_tabstat.tex}{Real USD, winsorized; person-years restricted to the same pooled regression sample used for return descriptives in the main text (Tables~\ref{tab:39_r5_age_bin} and~\ref{tab:39_r5_educ_cat}).}
 \FloatBarrier
 
 \par An important finding in the literature on earnings in the U.S. is that it is generally hump-shaped over the lifecycle. It is a good sign then that Figure~\ref{fig:income_by_agegroup_2020} displays this pattern.
@@ -81,7 +81,7 @@
 
 \par Another empirical finding in the literature on earnings is that on average individuals with more education earn higher income. The trend captured in Table~\ref{tab:42_income_by_educ} suggests that the earnings data is in line with what one would expect regarding earnings for a representative survey in the U.S.\footnote{Although the HRS oversamples older households, I use the provided respondent-level weights for this interpretation of the summary statistics of the data.}
 
-\InputStataRegTableCompact{\textbf{Mean Income by Education Group}}{tab:42_income_by_educ}{../../Code/Analysis/Tables/42_table3_income_by_educ.tex}{Real USD, winsorized. No hs $=$ $<$12y; Hs $=$ 12y; Some college $=$ 13--15y; 4yr $=$ 16y; Grad $=$ 17+y.}
+\InputStataRegTableCompact{\textbf{Mean Income by Education Group}}{tab:42_income_by_educ}{../../Code/Analysis/Tables/42_table3_income_by_educ.tex}{Real USD, winsorized; same person-year sample as Table~\ref{tab:42_income_tabstat}. No hs $=$ $<$12y; Hs $=$ 12y; Some college $=$ 13--15y; 4yr $=$ 16y; Grad $=$ 17+y.}
 \FloatBarrier
 
 \begin{figure}[H]
