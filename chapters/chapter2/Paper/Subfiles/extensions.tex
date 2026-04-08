@@ -44,7 +44,7 @@
 }
 
 
-\par \textbf{Figure sample (Extension).} All figures in this section use the same person-year set as the portfolio-share panel models: person-years with nonmissing portfolio shares and debt controls that enter the share-augmented CRE specification.
+%\par \textbf{Figure sample (Extension).} All figures in this section use the same person-year set as the portfolio-share panel models: person-years with nonmissing portfolio shares and debt controls that enter the share-augmented CRE specification.
 
 \par The key point about the documented persistent component to returns is that, even when controlling for risk preferences and exposure, individuals systematic earn different returns on the same assets\footnote{This point is further corroborated by evidence of heterogeneity in returns on safe assets like deposit accounts. An example from the academic literature is \cite{Deuflhard14}, but one can compare rates offered on deposit account at commercial banks like Bank of America versus local banks and see similar discrepancies in everyday life.}. Moreover, the descriptive statistics for mean returns show that returns do not seem stable over the time period (ex.\ Global Financial Crisis). To address this concern, I re-estimate the cross-section (average returns), pooled person-year OLS, and panel (FE and CRE) specifications after augmenting the set of controls with portfolio-share variables (core assets, IRA assets, residential assets, long-term debt, and other debt) fully interacted with year dummies. 
 
@@ -62,8 +62,30 @@ X_{i}'\beta
 
 \par Table~\ref{tab:41_avg_shares} shows that the hump-shaped relationship between trust and average returns survives this extension in both the baseline and extended specifications: the trust coefficients remain individually significant, and the joint test on the linear and quadratic trust terms is rejected in both columns.
 
-\InputStataRegTableCompact{\textbf{Trust and Average Returns to Net Wealth with Portfolio-Share Controls}}{tab:41_avg_shares}{../../Code/Analysis/Tables/41_table1_avg_shares.tex}{OLS. Heteroskedasticity-robust standard errors. Trust and portfolio shares are measured in 2020; dependent variable is average returns to net wealth (winsorized). Column~\textit{(1)} uses the baseline controls from the main text plus asset and debt shares; column~\textit{(2)} adds the full demographic controls. For readability, footer rows for joint tests with $p \geq 0.10$ are omitted from the final presentation, though the underlying regressions include the full control set.}
-\FloatBarrier
+\begin{table}[!t]
+\centering
+\begingroup
+\setlength{\abovecaptionskip}{2pt}%
+\setlength{\belowcaptionskip}{0pt}%
+\caption{\textbf{Trust and Average Returns to Net Wealth with Portfolio-Share Controls}}
+\endgroup
+\label{tab:41_avg_shares}
+\begin{threeparttable}
+\begingroup
+\setlength{\tabcolsep}{2pt}%
+\renewcommand{\arraystretch}{0.70}%
+\scriptsize%
+\resizebox{\textwidth}{!}{%
+\input{../../Code/Analysis/Tables/41_table1_avg_shares.tex}%
+}%
+\endgroup
+\begin{tablenotes}[flushleft]
+\scriptsize
+\item \ChapterTableNoteText{OLS. Heteroskedasticity-robust standard errors. Trust and portfolio shares are measured in 2020; dependent variable is average returns to net wealth (winsorized). Column~\textit{(1)} uses the baseline controls from the main text plus asset and debt shares; column~\textit{(2)} adds the full demographic controls. For readability, footer rows for joint tests with $p \geq 0.10$ are omitted from the final presentation, though the underlying regressions include the full control set.}%
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
 
 \par Relative to the corresponding average-return specifications in Table~\ref{tab:38_avg_returns}, adding shares increases model fit substantially: the adjusted $R^2$ in the baseline model rises from $.07$ to $.14$ and from $.09$ to $.17$ in the extended model. This suggests that portfolio composition explains a meaningful share of the cross-sectional variation in average returns. At the same time, the trust coefficients are essentially unchanged in sign and remain jointly significant, which is important for interpretation: controlling for observed portfolio shares improves fit, but it does not eliminate the hump-shaped relationship between trust and long-run returns. Furthermore, the Wald test on the coefficeints for the asset classes being jointly zero is rejected, suggesting that the proxies for risk exposure are predictive of returns to net wealth. 
 
@@ -71,7 +93,25 @@ X_{i}'\beta
 
 \par Table~\ref{tab:41_pooled_shares} reports person-year OLS estimates that mirror the pooled specification in the main text (Table~\ref{tab:38_pooled}), augmented with the portfolio-share controls and their interactions with survey year. As in the main results, standard errors are clustered by household. Column~\textit{(1)} includes the same baseline time-varying controls as in the pooled baseline column of Table~\ref{tab:38_pooled}, together with the share blocks; column~\textit{(2)} adds the full time-invariant demographic controls. The trust terms remain jointly significant in both columns. In this pooled setting, the share levels themselves are not jointly significant, but several of the share-by-year interaction blocks are, so the time-varying portfolio structure still loads on returns.
 
-\InputStataRegTableCompact{\textbf{Pooled OLS of Returns to Net Wealth on Trust with Portfolio-Share Controls}}{tab:41_pooled_shares}{../../Code/Analysis/Tables/41_table8_pooled_shares.tex}{Person-year OLS. Standard errors clustered by household. Portfolio shares enter as levels with share$\times$year interactions (parallel to the CRE specification). Column~\textit{(1)}: baseline time-varying controls plus education; column~\textit{(2)} adds gender, race/ethnicity, U.S.-born status, and census region. Footer rows report Wald tests for the three asset-share levels and for the two debt-share levels.}
+\begin{table}[htbp]
+\centering
+\caption{\textbf{Pooled OLS of Returns to Net Wealth on Trust with Portfolio-Share Controls}}
+\label{tab:41_pooled_shares}
+\begin{threeparttable}
+\begingroup
+\setlength{\tabcolsep}{2pt}%
+\renewcommand{\arraystretch}{0.70}%
+\scriptsize%
+\resizebox{\textwidth}{!}{%
+\input{../../Code/Analysis/Tables/41_table8_pooled_shares.tex}%
+}%
+\endgroup
+\begin{tablenotes}[flushleft]
+\scriptsize
+\item \ChapterTableNoteText{Person-year OLS. Standard errors clustered by household. Portfolio shares enter as levels with share$\times$year interactions (parallel to the CRE specification). Column~\textit{(1)}: baseline time-varying controls plus education; column~\textit{(2)} adds gender, race/ethnicity, U.S.-born status, and census region. Footer rows report Wald tests for the three asset-share levels and for the two debt-share levels.}%
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
 \FloatBarrier
 
 \subsection{Augmenting the FE model}
@@ -93,8 +133,26 @@ r^{net}_{it}
 
 \par Table~\ref{tab:41_fe_shares} shows the results of the estimation after adding the additional controls relevant to risk exposure. Relative to Table~\ref{tab:38_fe_1st}, adding the share controls increases the within-$R^2$ from $.18$ to $.20$ in both columns. The variance structure changes only modestly: $\rho$ falls from $.66$ and $.65$ to $.64$ and $.63$, while $\sigma_u$ stays around $.46$--$.47$ and $\sigma_e$ rises slightly from about $.33$ to $.35$. Thus, \textit{controlling for risk exposure does not effect the estimated distribution of fixed effects much.} This is useful information, since the indivdiual fixed effect is estimated after removing all time-varying variation from returns.
 
-\InputStataRegTableCompact{\textbf{Panel OLS with Individual Fixed Effects and Portfolio-Share Controls}}{tab:41_fe_shares}{../../Code/Analysis/Tables/41_table2_fe_shares.tex}{Within (household) fixed-effects estimator. Standard errors clustered by household. Column~\textit{(1)} adds time-varying portfolio shares and share x year interactions to the baseline FE specification; column~\textit{(2)} adds the extended time-varying controls. Reported $\rho$, $\sigma_u$, and $\sigma_e$ are variance-component estimates from the FE decomposition. In the final table presentation, joint-test rows with $p \geq 0.10$ are omitted for readability, but all share and interaction terms remain in the regression.}
-\FloatBarrier 
+\begin{table}[!t]
+\centering
+\caption{\textbf{Panel OLS with Individual Fixed Effects and Portfolio-Share Controls}}
+\label{tab:41_fe_shares}
+\begin{threeparttable}
+\begingroup
+\setlength{\tabcolsep}{2pt}%
+\renewcommand{\arraystretch}{0.70}%
+\scriptsize%
+\resizebox{\textwidth}{!}{%
+\input{../../Code/Analysis/Tables/41_table2_fe_shares.tex}%
+}%
+\endgroup
+\begin{tablenotes}[flushleft]
+\scriptsize
+\item \ChapterTableNoteText{Within (household) fixed-effects estimator. Standard errors clustered by household. Column~\textit{(1)} adds time-varying portfolio shares and share x year interactions to the baseline FE specification; column~\textit{(2)} adds the extended time-varying controls. Reported $\rho$, $\sigma_u$, and $\sigma_e$ are variance-component estimates from the FE decomposition. In the final table presentation, joint-test rows with $p \geq 0.10$ are omitted for readability, but all share and interaction terms remain in the regression.}%
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+% \FloatBarrier
 
 \par The joint tests on the remaining control variables also show a robustness to the risk controls. Age, wealth, and year effects remain strongly significant. The asset-share levels are not jointly significant, but the debt-share block is. Over time, the interaction terms for core shares, IRA shares, residential shares, and other debt are jointly significant, while the interaction for long-term debt is not. 
 
@@ -102,7 +160,25 @@ r^{net}_{it}
 
 \par The correlated random effects specification is the key panel model of interest here, since it retains the time-invariant trust measure while still allowing the persistent component to be correlated with the observed time-varying regressors.
 
-\InputStataRegTableCompact{\textbf{The CRE (Mundlak) Model with Portfolio-Share Controls}}{tab:41_cre_shares}{../../Code/Analysis/Tables/41_table3_cre_shares.tex}{Random effects with respondent-level Mundlak means of the time-varying regressors, augmented with portfolio-share levels and share x year interactions. Standard errors clustered by household. Column~\textit{(1)} uses the baseline time-invariant controls; column~\textit{(2)} adds the full demographic controls. Reported $\rho$, $\sigma_u$, and $\sigma_e$ are variance-component estimates from the augmented CRE specification. The footer includes separate joint tests for asset-share levels (core, IRA, residential) and debt-share levels (long-term, other), then joint tests for each share$\times$year block. ``Mundlak test $p$'' reports the cluster-robust Wald test of the null that the coefficients on all added panel means are jointly zero, the manual equivalent of Stata 19's \texttt{estat mundlak}.}
+\begin{table}[htbp]
+\centering
+\caption{\textbf{The CRE (Mundlak) Model with Portfolio-Share Controls}}
+\label{tab:41_cre_shares}
+\begin{threeparttable}
+\begingroup
+\setlength{\tabcolsep}{2pt}%
+\renewcommand{\arraystretch}{0.70}%
+\scriptsize%
+\resizebox{\textwidth}{!}{%
+\input{../../Code/Analysis/Tables/41_table3_cre_shares.tex}%
+}%
+\endgroup
+\begin{tablenotes}[flushleft]
+\scriptsize
+\item \ChapterTableNoteText{Random effects with respondent-level Mundlak means of the time-varying regressors, augmented with portfolio-share levels and share x year interactions. Standard errors clustered by household. Column~\textit{(1)} uses the baseline time-invariant controls; column~\textit{(2)} adds the full demographic controls. Reported $\rho$, $\sigma_u$, and $\sigma_e$ are variance-component estimates from the augmented CRE specification. The footer includes separate joint tests for asset-share levels (core, IRA, residential) and debt-share levels (long-term, other), then joint tests for each share$\times$year block. ``Mundlak test $p$'' reports the cluster-robust Wald test of the null that the coefficients on all added panel means are jointly zero, the manual equivalent of Stata 19's \texttt{estat mundlak}.}%
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
 \FloatBarrier
 
 \par The trust results survive this extension. The coefficients on trust remain positive on the linear term and negative on the quadratic term, and the joint test on the trust terms is still rejected in both columns. The corresponding Mundlak specification test is again overwhelmingly rejected, with $p \approx 3.7\times 10^{-43}$ in the baseline share-augmented CRE and $p \approx 7.0\times 10^{-43}$ in the extended specification, so the evidence against standard RE remains just as strong once portfolio composition is introduced. Relative to Table~\ref{tab:38_cre}, adding shares raises the within-$R^2$ from $.15$ to $.19$ in both columns. At the same time, $\rho$ falls from $.16$ and $.15$ to $.11$, which suggest a smaller share of the total variance is attributed to the persistent component after controlling for risk. Furthermore, $\sigma_u$ declines from about $.15$--$.16$ to $.12$, which implies that less unexplained variation is being attributed to persistent respondent-level differences. In other words, some of the previous variation across respondents has now been explained by risk exposure. Lastly, $\sigma_e$ remains around $.35$--$.36$.
@@ -115,8 +191,26 @@ r^{net}_{it}
 
 \par As in the main text, I summarize the implied interior turning point of the quadratic trust specification by reporting the trust level that maximizes fitted returns. Because the FE model absorbs the time-invariant trust measure, the natural comparison across models that estimate trust in levels is among average returns, pooled OLS, and CRE. Table~\ref{tab:41_trust_star_shares} reports turning points for those three model families in both baseline and extended specifications.
 
-\InputStataRegTableCompact{\textbf{The Level of Trust which Maximizes Returns with Portfolio-Share Controls}}{tab:41_trust_star_shares}{../../Code/Analysis/Tables/41_table4_trust_star_shares.tex}{Trust$^*$ is computed as $-\hat\beta_1/(2\hat\beta_2)$ from the share-augmented quadratic specifications. Standard errors, $p$-values for $H_0\!:\mathrm{Trust}^*=0$, and 95\% confidence intervals use the delta method. ``Both sig?'' indicates whether the linear and quadratic trust terms are each significant at 10\%, while ``Joint test'' reports the Wald test on the two trust terms.}
-\FloatBarrier
+\begin{table}[!t]
+\centering
+\caption{\textbf{The Level of Trust which Maximizes Returns with Portfolio-Share Controls}}
+\label{tab:41_trust_star_shares}
+\begin{threeparttable}
+\begingroup
+\setlength{\tabcolsep}{3pt}%
+\renewcommand{\arraystretch}{0.75}%
+\footnotesize%
+\resizebox{\textwidth}{!}{%
+\input{../../Code/Analysis/Tables/41_table4_trust_star_shares.tex}%
+}%
+\endgroup
+\begin{tablenotes}[flushleft]
+\scriptsize
+\item \ChapterTableNoteText{Trust$^*$ is computed as $-\hat\beta_1/(2\hat\beta_2)$ from the share-augmented quadratic specifications. Standard errors, $p$-values for $H_0\!:\mathrm{Trust}^*=0$, and 95\% confidence intervals use the delta method. ``Both sig?'' indicates whether the linear and quadratic trust terms are each significant at 10\%, while ``Joint test'' reports the Wald test on the two trust terms.}%
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+% \FloatBarrier
 
 \par The estimated trust-maximizing values remain in the same moderate range emphasized in the main results. In the average-return regressions, the turning point lies around $6.3$ in the baseline specification and $6.7$ in the extended one; in the pooled OLS regressions with shares, it lies in the same neighborhood as the person-year pooled estimates in Table~\ref{tab:38_trust_star}; in the CRE regressions, it lies around $6.3$ and $6.6$. Compared with Table~\ref{tab:38_trust_star}, these values move only modestly once portfolio shares are added, with the CRE turning point especially stable. The confidence intervals remain fairly tight, and all reported turning points are statistically different from zero. Substantively, this reinforces the main conclusion: even after conditioning on detailed portfolio composition and its time-varying association with returns, the fitted relationship still suggests that households with moderate trust levels earn the highest returns to net wealth.
 
@@ -124,13 +218,14 @@ r^{net}_{it}
 
 \par Figure~\ref{fig:41_trust_support_vs_tp_shares} repeats this comparison for the share-augmented specifications, using the observed responses to the generalized-trust question in the 2020 HRS survey. The vertical lines mark the estimated maxima from the extended average-return, extended pooled OLS, and extended CRE specifications (Table~\ref{tab:41_trust_star_shares}). I omit FE because trust and trust$^2$ are absorbed in the within specification.
 
-\begin{figure}[htbp]
+\begin{figure}[!t]
 \centering
-\includegraphics[width=0.82\textwidth]{../../Code/Analysis/Figures/41_trust_support_vs_tp_shares.png}
+\includegraphics[width=0.75\textwidth]{../../Code/Analysis/Figures/41_trust_support_vs_tp_shares.png}
+\vspace{-0.4em}
 \caption{Observed responses to the generalized-trust question in the 2020 HRS survey, with estimated return-maximizing trust levels from the extended average-return, pooled OLS, and CRE specifications with portfolio-share controls.}
 \label{fig:41_trust_support_vs_tp_shares}
 \end{figure}
-\FloatBarrier
+% \FloatBarrier
 
 \par The figure shows that the implied maxima remain in the same interior part of the trust distribution as in the main results. This matters for interpretation: once portfolio shares are added, the estimated peak of the fitted trust-return profile still lies in a region of trust with substantial empirical support rather than at the boundary of the observed data.
 
@@ -138,33 +233,37 @@ r^{net}_{it}
 
 \par Figure~\ref{fig:41_predicted_returns_by_race_shares} extends the race-based comparison of fitted returns to the portfolio-share specifications. As in the main results, each point reports a race group's mean predicted return relative to the overall mean predicted return from that model. For pooled OLS, FE, and CRE, I first predict returns at the person-year level on the estimation sample and then average those fitted values within respondent, so each respondent contributes one fitted-return value before taking race-specific means.
 
-\begin{figure}[htbp]
+\begin{figure}[!t]
 \centering
-\begin{subfigure}{0.48\textwidth}
+\begin{subfigure}{0.45\textwidth}
 \centering
-\includegraphics[width=\textwidth]{../../Code/Analysis/Figures/41_predicted_returns_by_race_shares_avg.png}
+\includegraphics[width=\linewidth]{../../Code/Analysis/Figures/41_predicted_returns_by_race_shares_avg.png}
 \caption{Average returns}
-\end{subfigure}
-\begin{subfigure}{0.48\textwidth}
+\end{subfigure}%
+\hfill
+\begin{subfigure}{0.45\textwidth}
 \centering
-\includegraphics[width=\textwidth]{../../Code/Analysis/Figures/41_predicted_returns_by_race_shares_pooled.png}
+\includegraphics[width=\linewidth]{../../Code/Analysis/Figures/41_predicted_returns_by_race_shares_pooled.png}
 \caption{Pooled OLS}
 \end{subfigure}
 
-\begin{subfigure}{0.48\textwidth}
+\vspace{-0.8em}
+
+\begin{subfigure}{0.45\textwidth}
 \centering
-\includegraphics[width=\textwidth]{../../Code/Analysis/Figures/41_predicted_returns_by_race_shares_fe.png}
+\includegraphics[width=\linewidth]{../../Code/Analysis/Figures/41_predicted_returns_by_race_shares_fe.png}
 \caption{FE}
-\end{subfigure}
-\begin{subfigure}{0.48\textwidth}
+\end{subfigure}%
+\hfill
+\begin{subfigure}{0.45\textwidth}
 \centering
-\includegraphics[width=\textwidth]{../../Code/Analysis/Figures/41_predicted_returns_by_race_shares_cre.png}
+\includegraphics[width=\linewidth]{../../Code/Analysis/Figures/41_predicted_returns_by_race_shares_cre.png}
 \caption{CRE}
 \end{subfigure}
 \caption{Race-specific mean predicted return minus the overall mean predicted return for each specification with portfolio-share controls (subfigure titles). The vertical axis in the exported figures is abbreviated ``Deviation from mean''; see Figure~\ref{fig:38_predicted_returns_by_race} for the parallel main-results construction.}
 \label{fig:41_predicted_returns_by_race_shares}
 \end{figure}
-\FloatBarrier
+% \FloatBarrier
 
 \par The extension is informative because it asks whether the fitted racial pattern is materially changed once portfolio composition is added to the specification. As before, the FE panel requires a narrower interpretation: these fitted values are constructed after absorbing the time-invariant regressors into the respondent effect, so they do not separately identify trust, trust$^2$, education, gender, race/ethnicity, or U.S.-born status. The average-return, pooled OLS, and CRE panels, by contrast, retain direct fitted roles for those observables while also conditioning on the portfolio-share controls.
 
