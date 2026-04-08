@@ -53,16 +53,16 @@
 
 \subsection{Trust and average returns to net wealth}
 
-\par I begin the analysis of the empirical relationship between the average returns to net wealth over the period 2002-2022 and the 2020 trust measure. This is captured by the regression equation \[\bar{r}^{net}_{i} = X_{i}'\beta + \varepsilon_{i}.\] Trust in ths model is assumed to be an invariant characteristic about households (measured in a single wave, but the same across waves) that influences economic decisions over time so that it matters for long-run returns. \footnote{\cite{Lesmeister2019} is an example of work which also assumes trust is time invariant.}
+\par I begin the analysis with establishing the empirical relationship between the average returns to net wealth over the period 2002-2022 and the 2020 trust measure. This is captured by the regression equation \[\bar{r}^{net}_{i} = X_{i}'\beta + \varepsilon_{i}.\] Trust in this model is assumed to be an invariant characteristic about households (measured in a single wave, but the same across waves) that influences economic decisions over time so that it matters for long-term returns. \footnote{\cite{Lesmeister2019} is an example of work that also assumes that trust is time invariant.}
 
 \InputStataRegTableCompact{\textbf{Trust and Average Returns to Net Wealth}}{tab:38_avg_returns}{../../Code/Analysis/Tables/38_table1_avg_returns.tex}{OLS. Heteroskedasticity-robust standard errors. Columns \textit{(3)--(4)} add wealth deciles, age bins, labor force, and education; column \textit{(4)} adds gender, race, region, immigration status, and marital status.}
 \FloatBarrier
 
-\par First, allowing for the hump-shaped relationship between trust and returns by adding the quadratic term for trust not only increases the predictive power of returns, but considerably increases the explained variation of the model. Second, as for other variables which reject the null hypothesis of no significant effect on returns, wealth and age add the most to explained variation, followed by labor force participation status and years of education. These controls represent the minimal, baseline specification of the model, captured by column 3 in the table. ~\ref{tab:38_avg_returns}. A final specifcation, with additional demographic variables, is robust to the hump-shaped relationship, as well as the predictive power of labor force participation status for returns.\footnote{As we will see later, Race and Gender are variables which predict trust well, so they are additional demographic variables which may be of interest here.}
+\par First, allowing for the hump-shaped relationship between trust and returns by adding the quadratic term for trust not only increases the predictive power of returns, but considerably increases the explained variation of the model. Second, as for other variables which reject the null hypothesis of no significant effect on returns, wealth and age add the most to explained variation, followed by labor force participation status and years of education. These controls represent the minimal, baseline specification of the model, captured by column 3 in table ~\ref{tab:38_avg_returns}. A final specification, with additional demographic variables, is robust to the hump-shaped relationship, as well as the predictive power of labor force participation status for returns.\footnote{As we will see later, Race and Gender are variables which predict trust well, so they are additional demographic variables which may be of interest here.}
 
 \subsection{Pooled regression model}
 
-\par With the implicit assumption that the 2020 trust measure is constant for respondents, then the hump-shaped relationship holds between trust and long-run, average returns to net wealth in the HRS data. A key object of analysis in the empirical heterogeneous returns literature is the estimated persistent component of returns. To build toward this, we move to the panel regression model \[r^{net}_{it} = \lambda_t + X_{it}'\beta + \varepsilon_{it}.\] In table ~\ref{tab:38_pooled}, I  show that the hump-shaped relationship persists in the pooled baseline model and with the maximal set of controls.
+\par With the implicit assumption that the 2020 trust measure is constant for respondents, then the hump-shaped relationship holds between trust and long-run, average returns to net wealth in the sample. A key object of analysis in the literature interested in measuring realized returns is the estimated persistent component of returns. To build toward this, we move to the panel regression model \[r^{net}_{it} = \lambda_t + X_{it}'\beta + \varepsilon_{it}.\] In table ~\ref{tab:38_pooled}, I  show that the hump-shaped relationship persists in the pooled model with the baseline set of controls and with the maximal set of controls.
 
 \InputStataRegTableCompact{\textbf{Pooled OLS of Returns to Net Wealth on Trust}}{tab:38_pooled}{../../Code/Analysis/Tables/38_table2_pooled.tex}{Person-year OLS. Standard errors clustered by household. Column \textit{(1)}: baseline controls (wealth, age, labor force, education, year effects). Column \textit{(2)}: adds gender, race, region, immigration status, and marital status.}
 \FloatBarrier
@@ -73,10 +73,51 @@
 
 \subsubsection{The Fixed Effects (FE) model}
 
-\par The next step is to allow for individual fixed effects in the panel regression so that the error term $\varepsilon_{it}$ can be written as \[\varepsilon_{it} = \alpha_{it} + e_{it},\] where $e_{it}$ may possibly be serially correlated. Notably, the predictive power of any the time-invariant regressors (trust, education, race, gender, region, immigration status) will be absored by the individual fixed effect term. Table~\ref{tab:38_fe_1st} reports two within-household specifications that differ only in which \emph{time-varying} controls are added on top of the same wealth-decile indicators, five-year age-bin fixed effects, and survey-year fixed effects (those blocks enter both columns but are summarized by joint tests in the lower panel rather than coefficient-by-coefficient). Column~\textit{(1)} isolates labor-force participation as the only time-varying demographic shown in the body of the table. Column~\textit{(2)} adds marital status and wave-specific census region (relative to Northeast), with the joint tests for marital status and region reported alongside the tests for age bins, wealth deciles, and years.
+\par The next step is to allow for individual fixed effects in the panel regression so that the error term $\varepsilon_{it}$ can be written as \[\varepsilon_{it} = \alpha_{it} + e_{it},\] where $e_{it}$ may possibly be serially correlated. Notably, \textit{the predictive power of any the time-invariant regressors (trust, education, race, gender, region, immigration status) will be absored by the individual fixed effect term}. 
 
-\InputStataRegTableCompact{\textbf{Panel OLS with Individual Fixed Effects}}{tab:38_fe_1st}{../../Code/Analysis/Tables/38_table3a_fe_1st.tex}{Within (household) fixed-effects estimator. Standard errors clustered by household. Time-invariant regressors absorbed. Column~\textit{(1)}: wealth deciles, age-bins, labor force, and year FE. Column~\textit{(2)}: Additional controls include time-varying marital status and census region. Reported $\rho$, $\sigma_u$, and $\sigma_e$ are variance-component estimates from the FE decomposition.}
-\FloatBarrier
+\par To see this, first recall that the FE model is equivalent to demeaning within individuals:
+\[
+r^{net}_{it} = \alpha_i + \lambda_t + X_{it}'\beta + \varepsilon_{it},
+\]
+
+\par For each individual $i$, take the time average:
+\[
+\bar{r}^{net}_i = \alpha_i + \bar{\lambda}_i + \bar{X}_i'\beta + \bar{\varepsilon}_i,
+\]
+
+\par Then subtract from the original equation:
+\[
+r^{net}_{it} - \bar{r}^{net}_i
+=
+\left(\lambda_t - \bar{\lambda}_i\right)
++ \left(X_{it} - \bar{X}_i\right)'\beta
++ \left(\varepsilon_{it} - \bar{\varepsilon}_i\right),
+\]
+
+\par Notice that the individual fixed effect is eliminated by this transformation. As a result, any time-invariant regressors are also removed from the model.
+
+\par Table~\ref{tab:38_fe_1st} reports two within-household specifications that differ only in which \emph{time-varying} controls are added on top of the same wealth-decile indicators, five-year age-bin fixed effects, and survey-year fixed effects (those blocks enter both columns but are summarized by joint tests in the lower panel rather than coefficient-by-coefficient). Column~\textit{(1)} isolates labor-force participation as the only time-varying demographic shown in the body of the table. Column~\textit{(2)} adds marital status and wave-specific census region (relative to Northeast), with the joint tests for marital status and region reported alongside the tests for age bins, wealth deciles, and years.
+
+\begin{table}[H]
+\centering
+\caption{\textbf{Panel OLS with Individual Fixed Effects}}
+\label{tab:38_fe_1st}
+\begin{threeparttable}
+\begingroup
+\setlength{\tabcolsep}{3pt}%
+\renewcommand{\arraystretch}{0.70}%
+\small%
+\resizebox{\textwidth}{!}{%
+\input{../../Code/Analysis/Tables/38_table3a_fe_1st.tex}%
+}%
+\endgroup
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item \ChapterTableNoteText{Within (household) fixed-effects estimator. Standard errors clustered by household. Time-invariant regressors absorbed. Column~\textit{(1)}: wealth deciles, age-bins, labor force, and year FE. Column~\textit{(2)}: Additional controls include time-varying marital status and census region. Reported $\rho$, $\sigma_u$, and $\sigma_e$ are variance-component estimates from the FE decomposition.}%
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
 
 \par The parameters $\rho$, $\sigma_u$, and $\sigma_e$ are of particular interest, as they summarize the variance decomposition of the error term in the panel regression. In this framework, $\sigma_u$ denotes the standard deviation of the unobserved individual-specific component, $\alpha_i$, capturing persistent differences in returns across individuals. The parameter $\sigma_e$ is the standard deviation of the idiosyncratic error term, $\varepsilon_{it}$, reflecting within-individual variation over time that is not explained by the included covariates.
 
@@ -100,7 +141,7 @@ A high value of $\rho$ indicates that a substantial share of the variation in re
 \end{figure}
 \FloatBarrier
 
-\par Figure~\ref{fig:43_fe_vs_wpct_37} shows that the estimated household fixed effect is strongly \emph{downward} sloping in wealth percentile. A direct check in Stata reproduces the same negative relationship in both correlation and simple-regression form, with the slope statistically different from zero at conventional levels. This should not be read as saying that wealth lowers raw returns. Rather, the fixed effect here is the residual household-specific intercept left after removing time-varying variation associated with wealth deciles, age bins, labor-force status, year effects, and in the extended specification marital status and region.
+\par The fixed effect here is the residual household-specific intercept left after removing time-varying variation associated with wealth deciles, age bins, labor-force status, year effects, and in the extended specification marital status and region. Figure~\ref{fig:43_fe_vs_wpct_37} shows that this estimated household fixed effect is strongly \emph{downward} sloping in wealth percentile. \footnote{A direct check in Stata reproduces the same negative relationship in both correlation and simple-regression form, with the slope statistically different from zero at conventional levels.}
 
 \begin{figure}[htbp]
   \centering
@@ -110,12 +151,30 @@ A high value of $\rho$ indicates that a substantial share of the variation in re
 \end{figure}
 \FloatBarrier
 
-\par It is a bit unsavory to show that a suite of factors, including the hump-shaped trust relationship, matter for explaining the variation in trust, but then to exclude them when characterizing the persistent component of returns. Said differently, we would like to control for these differences when describing how individuals differ in their returns on average.
+\par It is a bit unsavory to show that a host of time-invariant factors, including the hump-shaped trust relationship, matter for explaining the variation in trust, but then to exclude them when characterizing the persistent component of returns. Said differently, we would like to control for this variation (especially in trust) when describing how individuals differ in their returns on average.
 
-\par To move in this direction, I begin by regressing the estimated fixed effect onto the time-invariant variables which were excluded from the regression once the indivdiual fixed effect was accounted for in the model. In table ~\ref{tab:38_fe_2nd}, race and education seem to have the most predictive power regarding variation in the predicted individual effects. The negative education coefficients are not a coding mistake: they are reproduced even in a simple cross-sectional regression of the predicted fixed effect on $i.educ\_cat$, and they become more negative at higher education categories. At the same time, I hesitate to give these signs a strong structural interpretation. The left-hand side in this second-stage regression is itself a generated regressor from the first-stage FE model, so the coefficients should be read as descriptive correlations with the estimated residual household intercept after the first stage has already removed time-varying variation.
+\par To move in this direction, I begin by regressing the estimated fixed effect onto the time-invariant variables which were excluded from the regression once the indivdiual fixed effect was accounted for in the model. In table ~\ref{tab:38_fe_2nd}, race and education seem to have the most predictive power regarding variation in the predicted individual effects. The negative education coefficients are not a coding mistake: they are reproduced even in a simple cross-sectional regression of the predicted fixed effect on each education category, and they become more negative at higher education categories. At the same time, I hesitate to give these signs a strong structural interpretation. The left-hand side in this second-stage regression is itself a generated regressor from the first-stage FE model, so the coefficients should be read as descriptive correlations with the estimated residual household intercept after the first stage has already removed time-varying variation.
 
-\InputStataRegTableCompact{\textbf{Explaining Estimated Fixed Effect with Time-Invariant Controls}}{tab:38_fe_2nd}{../../Code/Analysis/Tables/38_table3_fe_2nd.tex}{Cross-sectional OLS of predicted household fixed effects on time-invariant regressors. Heteroskedasticity-robust standard errors. The dependent variable in column~\textit{(1)} is the fixed effect from the Table~\ref{tab:38_fe_1st} column~\textit{(1)} specification; in column~\textit{(2)} it is the fixed effect from column~\textit{(2)} of that table (so time-varying marital status and census region are already part of the first-stage FE when forming the left-hand side). Column~\textit{(1)}: education categories and trust; column~\textit{(2)}: adds gender, race/ethnicity, US-born, and census region.}
-\FloatBarrier
+\begin{table}[H]
+\centering
+\caption{\textbf{Explaining Estimated Fixed Effect with Time-Invariant Controls}}
+\label{tab:38_fe_2nd}
+\begin{threeparttable}
+\begingroup
+\setlength{\tabcolsep}{3pt}%
+\renewcommand{\arraystretch}{0.70}%
+\small%
+\resizebox{\textwidth}{!}{%
+\input{../../Code/Analysis/Tables/38_table3_fe_2nd.tex}%
+}%
+\endgroup
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item \ChapterTableNoteText{Cross-sectional OLS of predicted household fixed effects on time-invariant regressors. Heteroskedasticity-robust standard errors. The dependent variable in column~\textit{(1)} is the fixed effect from the Table~\ref{tab:38_fe_1st} column~\textit{(1)} specification; in column~\textit{(2)} it is the fixed effect from column~\textit{(2)} of that table (so time-varying marital status and census region are already part of the first-stage FE when forming the left-hand side). Column~\textit{(1)}: education categories and trust; column~\textit{(2)}: adds gender, race/ethnicity, US-born, and census region.}%
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
 
 \subsubsection{The Random Effects (RE) model}
 
@@ -132,40 +191,37 @@ A high value of $\rho$ indicates that a substantial share of the variation in re
 
 \par The rejection of the RE model is informative, but it does not help with the issue that we would like to account for the variation of time-invariant factors (like education and trust) while still characterizing the persistent component of returns for individuals. To do so, we move to the Correlated Random Effects (CRE) model, where the assumption of is $Cov(\alpha_i, X_{it}) = 0$ relaxed; the persistent component and time-varying factors are allowed to be correlated. 
 
-\par First, recall that the FE model is equivalent to demeaning within individuals:\footnote{In the empirical implementation below, the correlated random-effects specification is estimated manually using the traditional Mundlak device rather than Stata 19's dedicated \texttt{xtreg, cre} syntax. Concretely, I estimate \texttt{xtreg, re} and augment the right-hand side with respondent-level means of the time-varying regressors, which is the same econometric construction that earlier Stata workflows required users to code by hand before Stata 19 automated it and paired it with \texttt{estat mundlak}. The panel used in file 38 is strongly balanced, despite the legacy dataset name, so the within-respondent means of the survey-year indicators are constants across households. For that reason, I do not add averages of the year dummies separately in the Mundlak augmentation: in this balanced-panel setting they are collinear with the intercept and add no identifying variation.}
-\[
-r^{net}_{it} = \alpha_i + \lambda_t + X_{it}'\beta + \varepsilon_{it},
-\]
-
-\par For each individual $i$, take the time average:
-\[
-\bar{r}^{net}_i = \alpha_i + \bar{\lambda}_i + \bar{X}_i'\beta + \bar{\varepsilon}_i,
-\]
-
-\par Then subtract from the original equation:
-\[
-r^{net}_{it} - \bar{r}^{net}_i
-=
-\left(\lambda_t - \bar{\lambda}_i\right)
-+ \left(X_{it} - \bar{X}_i\right)'\beta
-+ \left(\varepsilon_{it} - \bar{\varepsilon}_i\right),
-\]
-
-\par Notice that the individual fixed effect is eliminated by this transformation. As a result, any time-invariant regressors are also removed from the model.
-
-\par The correlated random effects (CRE) model instead augments the regression with the individual-specific means of the time-varying regressors:
+\par The correlated random effects (CRE) model  augments the regression with the individual-specific means of the time-varying regressors:
 \[
 r^{net}_{it}
 =
 \alpha_i + \lambda_t + X_{it}'\beta + \bar{X}_i'\theta + \varepsilon_{it},
 \]
 
-\par where $\bar{X}_i$ denotes the within-individual averages of the regressors. The term $\bar{X}_i'\theta$ explicitly captures the correlation between the unobserved individual component $\alpha_i$ and the observed variables $X_{i,t}$. In the manual implementation used here, the reported Mundlak test is the cluster-robust Wald test that the coefficients on all added respondent-level mean terms are jointly zero, which is the manual equivalent of Stata 19's \texttt{estat mundlak}. That null is overwhelmingly rejected in both CRE specifications, with $p \approx 8.0\times 10^{-44}$ in the baseline column and $p \approx 1.8\times 10^{-43}$ in the extended column, strongly favoring the CRE specification over standard RE. The key finding of this paper is that, \textit{the coefficeints on the trust coefficients are statistically significant in the CRE setting, where the persistent component of returns can be estimated as well}. This can be seen in Table ~\ref{tab:38_cre}.
-
-\InputStataRegTableCompact{\textbf{The CRE (Mundlak) Model for Trust and Returns to Net Wealth}}{tab:38_cre}{../../Code/Analysis/Tables/38_table5_cre.tex}{Random effects with respondent-level Mundlak means of the time-varying regressors. Standard errors clustered by household. Within $R^2$ reported. $\rho$, $\sigma_u$, and $\sigma_e$ are variance-component estimates from the RE decomposition of the augmented CRE specification. ``Mundlak test $p$'' reports the cluster-robust Wald test of the null that the coefficients on all added panel means are jointly zero, the manual equivalent of Stata 19's \texttt{estat mundlak}.}
-\FloatBarrier
+\par where $\bar{X}_i$ denotes the within-individual averages of the regressors. The term $\bar{X}_i'\theta$ explicitly captures the correlation between the unobserved individual component $\alpha_i$ and the observed variables $X_{i,t}$. In the manual implementation used here, the reported Mundlak test is the cluster-robust Wald test that the coefficients on all added respondent-level mean terms are jointly zero, which is the manual equivalent of Stata 19's \texttt{estat mundlak}\footnote{In the empirical implementation below, the correlated random-effects specification is estimated manually using the traditional Mundlak device rather than Stata 19's dedicated \texttt{xtreg, cre} syntax. Concretely, I estimate \texttt{xtreg, re} and augment the right-hand side with respondent-level means of the time-varying regressors, which is the same econometric construction that earlier Stata workflows required users to code by hand before Stata 19 automated it and paired it with \texttt{estat mundlak}. The panel used in file 38 is strongly balanced, despite the legacy dataset name, so the within-respondent means of the survey-year indicators are constants across households. For that reason, I do not add averages of the year dummies separately in the Mundlak augmentation: in this balanced-panel setting they are collinear with the intercept and add no identifying variation.}. That null is overwhelmingly rejected in both CRE specifications, with $p \approx 8.0\times 10^{-44}$ in the baseline column and $p \approx 1.8\times 10^{-43}$ in the extended column, strongly favoring the CRE specification over standard RE. The key finding of this paper is that, \textit{the coefficeints on the trust coefficients are statistically significant in the CRE setting, where the persistent component of returns can be estimated as well}. This can be seen in Table ~\ref{tab:38_cre}.
 
 \par With the estimated individual fixed effect being a key empirical object of this paper, the interpretation of the variance structure is important here. Focus on the second column of Table~\ref{tab:38_cre}. Much like the FE and RE models, there is significant within-person variation not captured by time-varying regressors $\sigma_e^2(=.36)$. Moreover, the estimates of heterogeneity across individuals captured by $\sigma_u^2$ are smallest here $(=.15)$. These two features combined explains why the value for $\rho=.15$, documenting significant cross-sectional variation.
+
+\begin{table}[H]
+\centering
+\caption{\textbf{The CRE (Mundlak) Model for Trust and Returns to Net Wealth}}
+\label{tab:38_cre}
+\begin{threeparttable}
+\begingroup
+\setlength{\tabcolsep}{3pt}%
+\renewcommand{\arraystretch}{0.65}%
+\small%
+\resizebox{\textwidth}{!}{%
+\input{../../Code/Analysis/Tables/38_table5_cre.tex}%
+}%
+\endgroup
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item \ChapterTableNoteText{Random effects with respondent-level Mundlak means of the time-varying regressors. Standard errors clustered by household. Within $R^2$ reported. $\rho$, $\sigma_u$, and $\sigma_e$ are variance-component estimates from the RE decomposition of the augmented CRE specification. ``Mundlak test $p$'' reports the cluster-robust Wald test of the null that the coefficients on all added panel means are jointly zero, the manual equivalent of Stata 19's \texttt{estat mundlak}.}%
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
 
 \par Figure~\ref{fig:37_cre_hist} shows the distribution of the estimated CRE individual effect from the specification when controls are included. The estimated distribution is comparable estimated the using Norwegian population data and using the PSID, though less so than the FE model (especially near the center of the distriution).
 
@@ -177,15 +233,14 @@ r^{net}_{it}
 \end{figure}
 \FloatBarrier
 
-\begin{figure}[htbp]
+\par Figure~\ref{fig:43_cre_vs_wpct_37} shows the same basic pattern for the CRE individual effect. The relationship is again downward sloping, though flatter than in the FE case. The interpretation is the same as above: this figure is about the estimated residual persistent component after accounting for observed time-varying covariates and, in the CRE specification, their respondent-level means. It should therefore not be read as the raw relationship between returns and wealth, which is shown earlier in Figure~\ref{fig:39_r5_netwealth_pct}.
+
+\begin{figure}[H]
   \centering
-  \includegraphics[width=0.8\textwidth]{../../Code/Analysis/Figures/43_cre_vs_wpct_37.png}
+  \includegraphics[width=0.70\textwidth]{../../Code/Analysis/Figures/43_cre_vs_wpct_37.png}
   \caption{Estimated CRE individual effect vs.\ net wealth percentile (extended controls).}
   \label{fig:43_cre_vs_wpct_37}
 \end{figure}
-\FloatBarrier
-
-\par Figure~\ref{fig:43_cre_vs_wpct_37} shows the same basic pattern for the CRE individual effect. The relationship is again downward sloping, though flatter than in the FE case. The interpretation is the same as above: this figure is about the estimated residual persistent component after accounting for observed time-varying covariates and, in the CRE specification, their respondent-level means. It should therefore not be read as the raw relationship between returns and wealth, which is shown earlier in Figure~\ref{fig:39_r5_netwealth_pct}.
 
 \subsection{Which level of trust maximizes returns?}
 
@@ -199,8 +254,26 @@ r^{net}_{it} = \alpha_i + \lambda_t + X_{it}'\beta + \varepsilon_{it},
 \]
 Setting this derivative to zero gives the critical point $\textit{Trust}^* = -\beta_1/(2\beta_2)$. When $\hat\beta_1 \geq 0$ and $\hat\beta_2 \leq 0$, the fitted relationship in trust is concave (hump-shaped), and the estimated trust level that maximizes fitted returns to net wealth is $\textit{Trust}^* = -\hat\beta_1/(2\hat\beta_2)$, reported as $(\textit{Trust})^*$ in the Table~\ref{tab:38_trust_star}.
 
-\InputStataRegTableCompact{\textbf{The Level of Trust which Maximizes Returns}}{tab:38_trust_star}{../../Code/Analysis/Tables/38_table6_trust_star.tex}{Panel A: minimal time-invariant controls (education only in panel specifications). Panel B: full demographics. Trust$^*$ computed as $-\hat\beta_1/(2\hat\beta_2)$; standard errors, $p$-values for $H_0\!:\mathrm{Trust}^*=0$, and 95\% confidence intervals use the delta method (\texttt{nlcom} in Stata). ``Both sig?'' indicates both trust terms significant at 10\% in separate tests; joint test is Wald on both trust terms.}
-\FloatBarrier
+\begin{table}[H]
+\centering
+\caption{\textbf{The Level of Trust which Maximizes Returns}}
+\label{tab:38_trust_star}
+\begin{threeparttable}
+\begingroup
+\setlength{\tabcolsep}{3pt}%
+\renewcommand{\arraystretch}{0.70}%
+\small%
+\resizebox{\textwidth}{!}{%
+\input{../../Code/Analysis/Tables/38_table6_trust_star.tex}%
+}%
+\endgroup
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item \ChapterTableNoteText{Panel A: minimal time-invariant controls (education only in panel specifications). Panel B: full demographics. Trust$^*$ computed as $-\hat\beta_1/(2\hat\beta_2)$; standard errors, $p$-values for $H_0\!:\mathrm{Trust}^*=0$, and 95\% confidence intervals use the delta method (\texttt{nlcom} in Stata). ``Both sig?'' indicates both trust terms significant at 10\% in separate tests; joint test is Wald on both trust terms.}%
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
 
 \par In general, the estimated trust level that maximizes fitted returns lies in a moderate range. In the average-return and CRE models it is around $6.3$ to $7.1$, while the pooled specification places the peak somewhat higher once controls are added, at about $7.6$. When controls are added, the maximal level of trust is generally higher than when controls are excluded for each regression model tested. Because \(\textit{Trust}^*\) is a nonlinear function of \(\hat\beta_1\) and \(\hat\beta_2\), Stata uses the delta method to approximate its standard error. I use this to report the standard error on the estimated maximal level of trust, as well as $95\%$ confidence intervals, and p-values which test \(H_0: \textit{Trust}^* = 0\).
 
@@ -208,46 +281,49 @@ Setting this derivative to zero gives the critical point $\textit{Trust}^* = -\b
 
 \par Figure~\ref{fig:38_trust_support_vs_tp} overlays the observed distribution of responses to the generalized-trust question in the 2020 HRS survey with the three extended-specification maxima. Those three models are average returns, pooled OLS, and CRE. This makes the comparison easier to read substantively, because it shows whether the implied maxima lie in the thick part of the observed support rather than at the extreme tails of the trust distribution.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
   \centering
-  \includegraphics[width=0.82\textwidth]{../../Code/Analysis/Figures/38_trust_support_vs_tp.png}
+  \includegraphics[width=0.70\textwidth]{../../Code/Analysis/Figures/38_trust_support_vs_tp.png}
   \caption{Observed responses to the generalized-trust question in the 2020 HRS survey, with estimated return-maximizing trust levels from the extended average-return, pooled, and CRE specifications.}
   \label{fig:38_trust_support_vs_tp}
 \end{figure}
-\FloatBarrier
 
 \par The visual pattern is reassuring. The fitted maxima all fall in the same moderate range already emphasized by Table~\ref{tab:38_trust_star}, and they do so in a part of the trust distribution with substantial empirical support. I omit the FE model from this comparison because trust and trust$^2$ are absorbed by the within transformation and therefore are not estimated directly in the FE return equation. I also omit RE because the specification tests reported earlier reject it in favor of CRE.
 
 \subsection{Evaluating predicted returns by race}
 
-\par A complementary way to summarize the fitted models is to compare each racial group's mean predicted return with the overall mean predicted return from the same specification. Figure~\ref{fig:38_predicted_returns_by_race} does this for the final displayed average-return, pooled OLS, FE, and CRE models. For the panel specifications, I first predict returns at the person-year level on the estimation sample and then average those fitted values within respondent, so each respondent contributes one fitted-return value before taking race-specific means. Within each panel, a point above zero indicates that the group's average predicted return exceeds the model-wide average, while a point below zero indicates the opposite.
+\par An important finding in the HRS data is that i) \texttt{NH Black} racial category seems to predict trust well, ii) standard regression of returns to net wealth on race shows \texttt{NH Black} racial category seems to predicts returns, and iii) when trust (and trust$^2$) are included as regressors, the \texttt{NH Black} racial category no longer predicts returns. The combination of these results suggests that it may be worthwhile to study the predicted returns by racial group.   
 
-\begin{figure}[htbp]
+\par Figure~\ref{fig:38_predicted_returns_by_race} does this for the final displayed average-return, pooled OLS, FE, and CRE models. For the panel specifications, I first predict returns at the person-year level on the estimation sample and then average those fitted values within respondent, so each respondent contributes one fitted-return value before taking race-specific means. Within each panel, a point above zero indicates that the group's average predicted return exceeds the model-wide average, while a point below zero indicates the opposite.
+
+\par In each of the specifications, the mean predicted returns are higher on average for \texttt{NH Black} respondents. Notice that, in the Pooled OLS and CRE versions of the model, the coefficients on the trust terms are allowed to be estimated. These are the same figures which shows that a significant deviation of mean predicted returns for black respondents. The FE model, which does not estimate the effect of time-invariant trust on returns, estimates a deviation closer to zero (though still positive). No other racial categories show a robust, positive deviation from mean predicted returns.
+
+\begin{figure}[H]
   \centering
-  \begin{subfigure}{0.48\textwidth}
+  \begin{subfigure}{0.45\textwidth}
     \centering
-    \includegraphics[width=\textwidth]{../../Code/Analysis/Figures/38_predicted_returns_by_race_avg.png}
+    \includegraphics[width=\linewidth]{../../Code/Analysis/Figures/38_predicted_returns_by_race_avg.png}
     \caption{Average returns}
-  \end{subfigure}
-  \begin{subfigure}{0.48\textwidth}
+  \end{subfigure}\hfill
+  \begin{subfigure}{0.45\textwidth}
     \centering
-    \includegraphics[width=\textwidth]{../../Code/Analysis/Figures/38_predicted_returns_by_race_pooled.png}
+    \includegraphics[width=\linewidth]{../../Code/Analysis/Figures/38_predicted_returns_by_race_pooled.png}
     \caption{Pooled OLS}
   \end{subfigure}
 
-  \begin{subfigure}{0.48\textwidth}
+  \begin{subfigure}{0.45\textwidth}
     \centering
-    \includegraphics[width=\textwidth]{../../Code/Analysis/Figures/38_predicted_returns_by_race_fe.png}
+    \includegraphics[width=\linewidth]{../../Code/Analysis/Figures/38_predicted_returns_by_race_fe.png}
     \caption{FE}
-  \end{subfigure}
-  \begin{subfigure}{0.48\textwidth}
+  \end{subfigure}\hfill
+  \begin{subfigure}{0.45\textwidth}
     \centering
-    \includegraphics[width=\textwidth]{../../Code/Analysis/Figures/38_predicted_returns_by_race_cre.png}
+    \includegraphics[width=\linewidth]{../../Code/Analysis/Figures/38_predicted_returns_by_race_cre.png}
     \caption{CRE}
   \end{subfigure}
+
   \caption{Race-specific mean predicted return minus the overall mean predicted return for each specification (subfigure titles). The vertical axis in the exported figures is abbreviated ``Deviation from mean''; the comparison is to the model-wide average fitted return.}
   \label{fig:38_predicted_returns_by_race}
 \end{figure}
-\FloatBarrier
 
 \par The comparison is useful because it compresses the fitted racial differences into a single object that can be compared across model families. The FE panel should be interpreted more cautiously than the other three. In the FE model, the predictions are formed after absorbing the time-invariant regressors into the household effect, so they do not separately identify the roles of trust, trust$^2$, education, gender, race/ethnicity, or U.S.-born status. Put differently, the FE predicted values summarize fitted returns once all time-invariant heterogeneity has been loaded into the fixed effect term, whereas the average-return, pooled, and CRE panels retain direct roles for those observables in the fitted outcome.
