@@ -15,9 +15,12 @@ bibliography.
 - `04-acknowledgement.tex`: acknowledgments page
 - `06-chapter-1.tex`: wrapper for Chapter 1 body files
 - `07-chapter-2.tex`: wrapper for Chapter 2 body files
+- `08-chapter-3.tex`: wrapper for Chapter 3 body files
 - `11-appendix-A.tex`: supplementary appendix for Chapter 2
+- `12-appendix-B.tex`: supplementary appendix for Chapter 3
 - `chapters/chapter1`: imported compile assets for Chapter 1
 - `chapters/chapter2`: imported compile assets for Chapter 2
+- `chapters/chapter3`: imported compile assets for Chapter 3
 - `thesis.bib`: merged and deduplicated bibliography used by the dissertation
 - `scripts/import_chapters.sh`: refreshes imported chapter assets from the
   local source repositories
@@ -37,7 +40,7 @@ When the chapter source repos change locally, run:
 Set source paths when running the import script:
 
 ```bash
-CHAPTER1_SRC="/path/to/ch1" CHAPTER2_SRC="/path/to/ch2" ./scripts/import_chapters.sh
+CHAPTER1_SRC="/path/to/ch1" CHAPTER2_SRC="/path/to/ch2" CHAPTER3_SRC="/path/to/ch3" ./scripts/import_chapters.sh
 ```
 
 The script copies only compile-relevant source material into `chapters/` and

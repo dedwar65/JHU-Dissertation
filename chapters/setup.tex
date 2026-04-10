@@ -15,3 +15,27 @@
   \input{#1}%
   \endgroup
 }
+
+% Chapter 3 (inequality measures) theorem-style environments.
+\newtheorem{tm}{Theorem}
+\newtheorem{dfn}{Definition}
+\newtheorem{lma}{Lemma}
+\newtheorem{assu}{Assumption}
+\newtheorem{prop}{Proposition}
+\newtheorem{cro}{Corollary}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem{example}{Example}
+\newtheorem{observation}{Observation}
+\newtheorem{remak}{Remark}
+\newtheorem{exa}{Example}
+\newtheorem{ax}{Axiom}
+\newtheorem*{ax*}{Axiom}
+\newtheorem{ax.V}{V}
+\newtheorem{ax.AA}{AA}
+\newtheorem*{ax.C}{C-Independence}
+\newtheorem*{ax.U}{Uncertainty Aversion}
+
+% Compatibility shim for stale auxiliary files from older chapter builds.
+\makeatletter
+\providecommand{\pp@pagectr}[4]{}
+\makeatother

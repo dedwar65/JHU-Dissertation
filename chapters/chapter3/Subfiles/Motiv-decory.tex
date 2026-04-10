@@ -1,0 +1,101 @@
+\documentclass[../../../00-main.tex]{subfiles}
+
+\begin{document}
+
+
+\section{Motivation}
+\label{sec:Motivation}
+
+
+\par The goal of this section is to argue that \textit{there are fundamental features about wealth that make it different from income when it comes to ranking distributions}. The arguments I provide are a blend of empirical facts as well as a thought experiment and logical argument. Then the core argument of this paper becomes: \textbf{if i) there is a serious difference between ranking income distributions and ranking wealth distributions, and  ii) economic theory can be used to produce a measure of income inequality using the choice under uncertainty literature, then the same approach can be used to produce a measure of wealth inequality using the choice under ambiguity literature}. 
+
+\subsection{Empirical facts about income and wealth}
+
+\par It is well-known that income data is more reliably collected than wealth data. Consider a quote from \cite{sz16} which provides an estimate for wealth inequality using available administrative data:
+
+\begin{quote}
+
+Because of the lack of administrative data on wealth, none of the existing sources offer a definitive estimate. We see our paper as an attempt at using the most comprehensive administrative data currently available, but one that ought to be improved in at least two ways: (i) by using additional information already available at the Statistics of Income division of the IRS, and (ii) new data that the US Treasury could collect at low cost. A modest data collection effort would make it possible to obtain a better picture of the joint distributions of wealth, income, and saving, a necessary piece of information to evaluate proposals for consumption or wealth taxation.
+
+\end{quote}
+
+\par So it is clear that here are differences in the collection of income data and wealth data. But is it enough to justify incorporating modeling choices from the choice under subjective uncertainty framework in the exercise of comparing wealth distributions?\footnote{in combination with the choice under objective uncertainty is what is referred to as \say{choice under ambiguity} framework.} 
+
+\par Consider next a quote from \cite{bks16} which provides a justification for their use of administrative data and their measurement of income and wealth inequality:
+
+\begin{quote}
+
+In general, administrative data should provide better estimates of top income and wealth shares, because traditional random household surveys suffer from under- representation of wealthy families. Unlike most other household surveys, the SCF is designed to overcome the underrepresentation problem, because administrative data are used to select the sample, and rigorous targeting and accounting for wealthy family participation assures those families are properly represented in the survey data.
+
+\end{quote}
+
+\par Not only is \say{good} data on income more accessible, but the estimation of wealth shares typically employs some combination of administrative and survey data. But survey data is by, quite literally, a subjective measure: it implicitly relies on individual's truthful and accurate reporting of their own levels of wealth.
+
+\subsection{A thought experiment}
+
+\par Country A has $60$ individuals; there are two possible races so that each individual is either black or white. Suppose there are $10$ black and $50$ white individuals. There is an initial wealth distribution $f(w)$, so that $w=(w_1,\ldots,w_{60})$ and $f(w_i)$ gives the proportion of individuals with that level of wealth. One can consider total wealth, $\bar{w}=\sum_{i=1}^{60} w_i f(w_i)$, as well as group wealth totals, $\bar{w}_b$ and $\bar{w}_w$.
+
+\par Partition each racial group into rich and poor individuals:
+\[
+B=B^R\cup B^P,\quad W=W^R\cup W^P,
+\]
+with $|B^R|=5,\ |B^P|=5,\ |W^R|=25,\ |W^P|=25$.
+
+\par A policymaker compares two budget-balanced redistributive policies:
+
+\begin{quote}
+\textbf{Policy A:} decrease wealth of each individual in $B^R$ by $20$ units, and increase wealth of each individual in $W^P$ by $4$ units.
+\end{quote}
+
+\begin{quote}
+\textbf{Policy B:} decrease wealth of each individual in $W^R$ by $4$ units, and increase wealth of each individual in $B^P$ by $20$ units.
+\end{quote}
+
+\par Both policies transfer the same total amount of wealth:
+\[
+5\times 20 = 25\times 4 = 100.
+\]
+
+\par Assuming that, aside from racial labels, the post-policy wealth profile is the same under both policies, the choice under objective uncertainty framework would treat Policies A and B as equivalent, since they induce the same resulting wealth distribution. In other words, they have the \textit{same effect on wealth inequality under this framework}.
+
+\par However, it is not unreasonable to suspect that these two policies would not receive the same support in practice, especially in the U.S. context where race is tied to historically persistent barriers to wealth accumulation. This is the sense in which the choice under objective uncertainty framework, while useful for income distributions, may miss relevant features when ranking wealth distributions. If this is the case, then a notion of subjective uncertainty can be incorporated in a straightforward way: denote the finite state space $S=\{\text{black},\text{white}\}$. From here, using a model that allows for uncertainty aversion is a reasonable deviation from the objective case.
+
+
+\subsection{A logical argument}
+
+\par An immediate counterargument to the previous thought experiment is that the factors which make it more difficult for blacks to accumulate wealth in the U.S. (which is the assumed reasoning behind not being indifferent between the two policies) should also apply to blacks earning income. The first rebuttal to this point is the aforementioned observable data on differences between income and wealth inequality.  
+
+\par However, I believe an appeal to the underlying meaning of the word \say{wealth} statements of the late philosopher John Rawls may convince readers that income inequality and wealth inequality truly are different phenomena, and that the latter has a objective-subjective uncertainty structure that makes it suited for the choice under ambiguity model to produce an accompanying measure of wealth inequality aversion. 
+
+\par \cite{jr71} is interested in the problem of getting a group of people with different circumstances and motives to agree on a \textit{social contract}; that is, an agreement on a system of governing for which all members of the group must abide by.
+
+\par He proposes that this problem should be approached as if those deciding on the governance of society are behind a \textit{veil of ignorance}: decision-makers are ignorant of their own circumstances. He then proposes two principles that may accompany this veil of ignorance in the delivery of justice for institutions which govern our society. Consider Rawls' final statement of the two principles of justice for institutions:
+
+\begin{enumerate}
+\item Each person is to have an equal right to the most extensive total system of equal basic liberties compatible with a similar system of liberty for all.
+
+\item Social and economic inequalities are to be arranged so that they are both:
+
+\begin{enumerate}
+\item to the greatest benefit of the least advantaged, consistent with the just savings principle, and
+\item attached to offices and positions open to all under conditions of fair equality of opportunity.
+\end{enumerate}
+\end{enumerate}
+
+\par But how is this related to the social planner's decision problem of ranking wealth distributions? The link is that there is some \textbf{underlying notion of a social contract implicit in any concept of wealth, since wealth requires enforceable ownership rights.} In modern economies, those rights are defined and protected by a government (or governing legal authority): individuals must agree on what it means to own something, and must respect that some individuals own more and/or less than they do. By contrast, income is often generated through a worker--employer contract, which the employer may legally modify or terminate (subject to labor law and contract terms). This makes wealth inequality more directly tied to legal and political institutions than labor income\footnote{Further arguments could be made that income suffers from legal and political contamination as well.}.
+
+
+\par Consider another quote from Rawls, which is almost exactly the intuitive counterpart to the modeling choices I make later in the characterization of a comparison over wealth distributions:
+
+\begin{quote}
+
+The maximin rule tells us to rank alternatives by their worst possible outcomes: we are to adopt the alternative the worst outcome of which is superior to the worst outcomes of the others\footnote{Coincidentally, Rawls' second principle of justice for institutions is often considered by economists to be interchangeable with the maximin principle, despite his belief that it is \say{undesirable to use the same name for two things that are so distinct.}.}.
+
+\end{quote}
+
+
+
+
+
+
+\end{document}

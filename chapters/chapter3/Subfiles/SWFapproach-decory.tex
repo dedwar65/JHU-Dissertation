@@ -1,0 +1,59 @@
+\documentclass[../../../00-main.tex]{subfiles}
+
+\begin{document}
+
+
+\section{The social welfare approach to ranking wealth distributions}
+\label{sec:SWFapproach}
+
+\subsection{Partial ranking over wealth distributions}
+
+\par From here, I assume that the function $U: Y \mapsto \mathbb{R}$ is an increasing and concave function. Again, we seek the conditions for which a ranking over wealth distributions can be achieved without any further specifications on $U(y)$.
+
+\par Recall that the second-order stochastic dominance result was necessary and sufficient to reach a partial ordering over income distributions. The proposition below provides a sufficient condition that extends this logic to the ambiguity setting with maxmin aggregation over priors.
+
+\begin{prop}
+Define
+\[
+W^{A}(\{p_s\};U) \equiv \min_{\lambda \in C} \int_{S} \big(\mathbb{E}_{p_s}[U]\big)\, d\lambda,
+\quad C \subseteq \Delta(S).
+\]
+\par \textit{Notation.} The notation $W^{A}$ was introduced in Section~\ref{sec:ExtendedModel}.
+If, for every $s \in S$,
+\[
+\int_{0}^{z} \left[P_{s}(y) - P^{*}_{s}(y)\right] dy \leq 0
+\quad \text{for all } z,\; 0 \leq z \leq \bar{y},
+\]
+where
+\[
+P_s(y) = \int_{0}^{y} p_s(t)\,dt
+\quad \text{and} \quad
+P_s^*(y) = \int_{0}^{y} p_s^*(t)\,dt,
+\]
+then $p$ is weakly preferred to $p^*$ according to $W^{A}$ for all $U(y)$ with $U' > 0$ and $U'' \leq 0$.
+\end{prop}
+
+
+\par The proof can be found in the Appendix. In general, the converse need not hold under a maxmin criterion unless additional assumptions are imposed on $C$.
+
+\subsection{Complete ranking over wealth distributions}
+
+\par To reach our complete ordering over wealth distribution, we must guarantee that $U(y)$ is specified up to a linear (monotonic) transformation. Work done by \cite{rklm81} extending the notion of relative risk aversion results to the case of \say{multidimensional commodities} implies that the restriction we are after is the class of social welfare functions representing homothetic preferences. That is,
+
+\begin{equation}
+U(y) = 
+	\begin{cases}
+	A + B \frac{y^{1-\epsilon}}{1-\epsilon}, & \epsilon \neq 1\\
+	\ln(y), & \epsilon =1
+	\end{cases}
+\end{equation}
+
+\par For strict concavity in this class, take $B>0$, $y>0$, and $\epsilon>0$ (with $\epsilon=1$ giving the log case); note that $\epsilon=0$ yields linear utility.
+
+\par It is well-know that, in the risk and risk aversion literature, this functional form is associated with the class of utility functions representing constant relative risk averse (CRRA) and decreasing absolute risk averse (DARA) preferences.
+
+
+
+
+
+\end{document}

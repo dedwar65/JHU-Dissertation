@@ -1,0 +1,87 @@
+\documentclass[../../../00-main.tex]{subfiles}
+
+\begin{document}
+
+
+\section{Proposing an alternative measure of inequality}
+\label{sec:Altmeasure}
+
+
+\par The ranking over wealth distributions via specifications on $U(y)$ will allow us to propose measures of inequality. To see the novelty in this \say{social welfare approach}, notice that measures of inequality are generally statistical objects. Namely, the variance, coefficient of variation, and mean deviation are each calculated using collected data on the distribution of an outcome such as income or wealth.
+
+\par Consider one plausible inequality measure: given some present distribution $f(w)=\{p_s(y)\}_{s\in S}$, the ratio between social welfare at the current distribution and social welfare at equal wealth $\mu$. Using the robust welfare index
+\[
+W^{A} \equiv \min_{\lambda \in C}\int_S\int_0^{\bar y} U(y)\,p_s(y)\,dy\,d\lambda,
+\qquad C\subseteq \Delta(S),
+\]
+we may write
+\[
+D^{A} = \frac{W^{A}}{U(\mu)}.
+\]
+
+\par \textit{Notation.} Superscript $A$ denotes ambiguity objects; this is the first appearance of $D^{A}$ in the main text.
+
+\par However, this ratio is not invariant to positive affine transformations of $U$, so different cardinal representations can produce different values of $D^{A}$ even when they induce the same ranking.\footnote{As shown by \cite{hd20} and others.}
+
+\subsection{The equally distributed equivalent measure of inequality}
+
+\par To avoid this undesirable property, define the equally distributed equivalent wealth level as follows.
+
+\begin{dfn}
+The equally distributed equivalent level of wealth $w_{EDE}$ is defined by
+\[
+U(w_{EDE}) = W^{A}.
+\]
+Equivalently,
+\[
+U(w_{EDE}) = \min_{\lambda \in C}\int_S\int_0^{\bar y} U(y)\,p_s(y)\,dy\,d\lambda.
+\]
+\end{dfn}
+
+\par Since each $p_s$ integrates to one on $Y$ and each $\lambda\in C$ is a probability on $S$, the normalization factor is one, so no extra scale term is needed in the definition.
+
+\par The corresponding equally distributed equivalent inequality measure is
+\[
+I^{A} = 1 - \frac{w_{EDE}}{\mu}.
+\]
+
+\par \textit{Notation.} This is the first appearance of $I^{A}$ in the main text.
+
+\par This measure is cardinally robust (with respect to positive affine transformations of $U$) and lies in $[0,1]$ under the usual ordering conditions.
+
+\subsection{Closed-form expression under homothetic preferences}
+
+\par For computation, the key identity is
+\[
+w_{EDE} = U^{-1}(W^{A}).
+\]
+For the homothetic class,
+\[
+U(y)=
+\begin{cases}
+A + B\dfrac{y^{1-\epsilon}}{1-\epsilon}, & \epsilon\neq 1,\\
+A + B\ln y, & \epsilon = 1,
+\end{cases}
+\qquad B>0,
+\]
+with $y>0$ and $\epsilon>0$ for strict concavity (note: $\epsilon=0$ is linear and therefore not strictly concave).
+
+\par If $\epsilon\neq 1$,
+\[
+w_{EDE} = \left[\frac{1-\epsilon}{B}\,(W^{A}-A)\right]^{\frac{1}{1-\epsilon}},
+\qquad
+I^{A} = 1 - \frac{1}{\mu}\left[\frac{1-\epsilon}{B}\,(W^{A}-A)\right]^{\frac{1}{1-\epsilon}}.
+\]
+
+\par If $\epsilon=1$,
+\[
+w_{EDE} = \exp\!\left(\frac{W^{A}-A}{B}\right),
+\qquad
+I^{A} = 1 - \frac{1}{\mu}\exp\!\left(\frac{W^{A}-A}{B}\right).
+\]
+
+\par Appendix~\ref{app:objective-benchmark} gives the same derivation for the objective-uncertainty benchmark and then shows that the ambiguity case is obtained by replacing $W^{O}$ with $W^{A}$.
+
+
+
+\end{document}
