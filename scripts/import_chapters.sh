@@ -131,12 +131,13 @@ copy_file_list "$CHAPTER2_SRC" "$ROOT_DIR/chapters/chapter2" \
   "Paper/Subfiles/appendix.tex"
 
 copy_file_list "$CHAPTER3_SRC" "$ROOT_DIR/chapters/chapter3" \
-  "Subfiles/Abstract-decory.texinput" \
+  "Subfiles/Abstract-chapter3.tex" \
   "Subfiles/Intro-decory.tex" \
   "Subfiles/Motiv-decory.tex" \
   "Subfiles/ExtendedModel-decory.tex" \
   "Subfiles/SWFapproach-decory.tex" \
   "Subfiles/Alternativemeasure-decory.tex" \
+  "Subfiles/Computing-decory.tex" \
   "Subfiles/Conclusion-decory.tex" \
   "Subfiles/Appendix-decory.tex"
 

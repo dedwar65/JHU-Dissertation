@@ -9,19 +9,7 @@
 
 \par I use the triennial Survey of Consumer Finances (SCF), $1989$--$2022$, and restrict the sample to Black and White households in each wave. For each year, I compute weighted medians for net wealth and gross assets, and then compute $I^{O}$ and $I^{A}$ under two treatments: (i) a restricted sample that keeps only strictly positive wealth values, and (ii) a shifted full sample that adds a year-specific constant so all observations are strictly positive.
 
-\par The appendix objective benchmark (Appendix~\ref{app:objective-benchmark}) defines social welfare under \textit{objective uncertainty} as
-\[
-W^{O}\equiv \int_{0}^{\bar y} U(y)\,p(y)\,dy,
-\]
-where $p$ is a single frequency distribution over the outcome---in the original income discussion, $p$ is an income distribution; here the outcome is wealth $y$ and $p$ is the \textit{pooled} Black--White wealth distribution implied by the SCF replicate weights in year $t$. With discrete observations and weights $\{\omega_i\}$, this is equivalently the population-weighted average $\big(\sum_i \omega_i U(y_i)\big)\big/\big(\sum_i \omega_i\big)$ over the analysis sample.
-
-\par Writing $\pi_{B,t}$ and $\pi_{W,t}$ for the Black and White population shares in that pooled sample ($\pi_{B,t}+\pi_{W,t}=1$) and $\mathbb{E}_{B,t}$, $\mathbb{E}_{W,t}$ for the within-group weighted means of $U(y)$ gives the same number as a between-group decomposition,
-\[
-W^{O}_{t}=\pi_{B,t}\,\mathbb{E}_{B,t}[U(y)]+\pi_{W,t}\,\mathbb{E}_{W,t}[U(y)].
-\]
-This is not a different model from the appendix: it is the vNM--EU integral applied to the marginal wealth distribution, carried out group-by-group only for arithmetic convenience.
-
-\par The \textit{ambiguity} aggregator used for $I^{A}$ follows the Gilboa--Schmeidler construction with $C=\Delta(S)$ and $S=\{\text{Black},\text{White}\}$. Because the criterion is linear in probabilities over the two states, the inner minimum is attained by putting all weight on whichever racial group has the lower within-group expected utility that year, so computationally $W^{A}_{t}=\min\{\mathbb{E}_{B,t}[U(y)],\,\mathbb{E}_{W,t}[U(y)]\}$. The wedge $I^{A}_{t}>I^{O}_{t}$ comes from this maxmin step relative to the pooled objective $W^{O}_{t}$ above.
+\par The \textit{ambiguity} aggregator used for $I^{A}$ follows the Gilboa--Schmeidler construction with $C=\Delta(S)$ and $S=\{\text{Black},\text{White}\}$. Because the criterion is linear in probabilities over the two states, the inner minimum is attained by putting all weight on whichever racial group has the lower within-group expected utility that year, so computationally $W^{A}_{t}=\min\{\mathbb{E}_{B,t}[U(y)],\,\mathbb{E}_{W,t}[U(y)]\}$. The wedge $I^{A}_{t}>I^{O}_{t}$ arises relative to the objective benchmark $W^{O}$ defined in Appendix~\ref{app:objective-benchmark}.
 
 \par The main text reports $\epsilon\in\{0.25,0.5,1,1.5,2\}$; the linear benchmark $\epsilon=0$ is discussed in Appendix~\ref{app:eps0-benchmark}.
 

@@ -92,12 +92,6 @@ f \succsim f^*
 \]
 \end{tm}
 
-\subsubsection*{Interpreting $C=\Delta(S)$}
-
-\par In the representation, $\Delta(S)$ denotes the set of all probability measures on the finite state space $S$: each $\lambda\in\Delta(S)$ is a \textit{prior} over which resolution of subjective uncertainty might occur, with $\lambda_s\ge 0$ and $\sum_{s\in S}\lambda_s=1$. The decision criterion is \textit{maxmin expected utility}: for each act, welfare is the \textit{minimum}, over priors $\lambda$ admitted by the ambiguity set $C\subseteq\Delta(S)$, of the expected value of within-state utilities $\mathbb{E}_{p_s}[U]$ averaged according to $\lambda$. When probabilities over $S$ are not taken as objectively given, evaluating acts by this worst case is the formal sense in which the model is pessimistic about unknown weights on states.
-
-\par Taking $C=\Delta(S)$ is therefore an extreme benchmark: every prior on $S$ is deemed possible, so the minimum is taken over the entire simplex. In the computational section, $S$ is racial group and the criterion is linear in $\lambda$ for fixed within-group expected utilities; in that two-state case the minimum is attained by concentrating all weight on whichever group attains the lower $\mathbb{E}_{p_s}[U]$---a sharp ``evaluate the act by its weakest racial state'' rule. This is only an \textit{analogy} to Rawls's maximin idea---rank arrangements by how well the worst position fares under deep uncertainty about which position one occupies \cite{jr71}---not a literal translation of his theory of justice into the GS axioms, but it makes the common ``worst-case'' logic transparent.
-
 From here on out, we assume that wealth distributions will be ranked according to:
 
 $$ W^{A} \equiv \min_{\lambda \in C} \int_{S} (\mathbb{E}_{p_s}[U]) d \lambda $$
