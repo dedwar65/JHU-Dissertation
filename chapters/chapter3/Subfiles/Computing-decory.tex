@@ -1,0 +1,132 @@
+\documentclass[Chp3.tex]{subfiles}
+
+\begin{document}
+
+\section{Wealth inequality aversion and the racial wealth gap}
+\label{subsec:compute-measures}
+
+\subsection{Data}
+
+\par I use the triennial Survey of Consumer Finances (SCF), $1989$--$2022$, and restrict the sample to Black and White households in each wave. For each year, I compute weighted medians for net wealth and gross assets, and then compute $I^{O}$ and $I^{A}$ under two treatments: (i) a restricted sample that keeps only strictly positive wealth values, and (ii) a shifted full sample that adds a year-specific constant so all observations are strictly positive.
+
+\par The appendix objective benchmark (Appendix~\ref{app:objective-benchmark}) defines social welfare under \textit{objective uncertainty} as
+\[
+W^{O}\equiv \int_{0}^{\bar y} U(y)\,p(y)\,dy,
+\]
+where $p$ is a single frequency distribution over the outcome---in the original income discussion, $p$ is an income distribution; here the outcome is wealth $y$ and $p$ is the \textit{pooled} Black--White wealth distribution implied by the SCF replicate weights in year $t$. With discrete observations and weights $\{\omega_i\}$, this is equivalently the population-weighted average $\big(\sum_i \omega_i U(y_i)\big)\big/\big(\sum_i \omega_i\big)$ over the analysis sample.
+
+\par Writing $\pi_{B,t}$ and $\pi_{W,t}$ for the Black and White population shares in that pooled sample ($\pi_{B,t}+\pi_{W,t}=1$) and $\mathbb{E}_{B,t}$, $\mathbb{E}_{W,t}$ for the within-group weighted means of $U(y)$ gives the same number as a between-group decomposition,
+\[
+W^{O}_{t}=\pi_{B,t}\,\mathbb{E}_{B,t}[U(y)]+\pi_{W,t}\,\mathbb{E}_{W,t}[U(y)].
+\]
+This is not a different model from the appendix: it is the vNM--EU integral applied to the marginal wealth distribution, carried out group-by-group only for arithmetic convenience.
+
+\par The \textit{ambiguity} aggregator used for $I^{A}$ follows the Gilboa--Schmeidler construction with $C=\Delta(S)$ and $S=\{\text{Black},\text{White}\}$. Because the criterion is linear in probabilities over the two states, the inner minimum is attained by putting all weight on whichever racial group has the lower within-group expected utility that year, so computationally $W^{A}_{t}=\min\{\mathbb{E}_{B,t}[U(y)],\,\mathbb{E}_{W,t}[U(y)]\}$. The wedge $I^{A}_{t}>I^{O}_{t}$ comes from this maxmin step relative to the pooled objective $W^{O}_{t}$ above.
+
+\par The main text reports $\epsilon\in\{0.25,0.5,1,1.5,2\}$; the linear benchmark $\epsilon=0$ is discussed in Appendix~\ref{app:eps0-benchmark}.
+
+\par With these modeling objects fixed, the theoretical welfare expressions map directly into computable objects in the data: for each year and wealth concept, we compute $W^{O}$ and $W^{A}$, invert $U$ to recover the equally distributed equivalent wealth level, and then construct $I^{O}$ and $I^{A}$. The remaining step is to set values for $\epsilon$, which governs the curvature of $U(y)$ and therefore the degree of inequality aversion imposed in the computation.
+
+\par The parameter $\epsilon$ indexes the curvature of the social welfare function $U(y)$ and therefore the strength of inequality aversion: larger $\epsilon$ means stronger concavity, a higher penalty on low-wealth outcomes, and thus higher implied inequality aversion in both $I^{O}$ and $I^{A}$.
+
+\par For orientation, read the CRRA index in four regions: (i) $\epsilon=0$ is the affine (linear) benchmark with no inequality aversion in the objective aggregator, reported separately in Appendix~\ref{app:eps0-benchmark}; (ii) $0<\epsilon<1$ yields concavity that is still milder than the logarithmic case; (iii) $\epsilon=1$ is the log boundary; (iv) $\epsilon>1$ imposes tail sensitivity strictly stronger than the log case. The subsections below walk through $\epsilon\in\{0.25,0.5,1,1.5,2\}$ so that each reported value sits in a clearly labeled part of this map.
+
+\subsection{The Black-White gap in net wealth and gross assets}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.92\linewidth]{\subfix{../Figures/03_mean_net_gross_by_race.png}}
+\caption{Mean net wealth (left panel) and mean gross assets (right panel) for Black and White households, SCF 1989--2022.}
+\label{fig:mean-net-gross-by-race}
+\end{figure}
+
+\par Figure~\ref{fig:mean-net-gross-by-race} plots race-specific means before differencing: White household means lie above Black means in both net wealth and gross assets throughout the sample.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.92\linewidth]{\subfix{../Figures/03_gap_diagnostic_all_obs.png}}
+\caption{The Black-White gap in net wealth and gross assets: median wealth differential, SCF 1989--2022.}
+\label{fig:gap-net-gross}
+\end{figure}
+
+\par Figure~\ref{fig:gap-net-gross} shows that the median Black-White differential is positive and persistent in both series, with gross-asset gaps generally larger than net-wealth gaps over the sample.
+
+\par Checking gross assets alongside net wealth is useful because it verifies that the empirical trend is not an artifact of liability measurement alone: both series move with similar broad dynamics over time. At the same time, the gross-asset gap is higher in levels than the net-wealth gap, which is consistent with definition since net wealth subtracts debts while gross assets do not.
+
+\subsection{$\epsilon=0.25$: below log, mild concavity}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.92\linewidth]{\subfix{../Figures/08_measures_eps025_net.png}}\\[0.75em]
+\includegraphics[width=0.92\linewidth]{\subfix{../Figures/08_measures_eps025_gross.png}}
+\caption{Inequality measures for $\epsilon=0.25$ (top: net wealth, bottom: gross assets). In each panel pair, shifted full sample is on the left and restricted sample is on the right.}
+\label{fig:eps025-measures}
+\end{figure}
+
+\par Here $\epsilon=0.25$ lies strictly between the linear benchmark and $\epsilon=1$: concavity is present but still relatively mild compared with the log case.
+
+\par Even with this low curvature, the ambiguity ranking already yields higher inequality levels than the objective ranking in both wealth concepts (\(I^{A}>I^{O}\)); the restricted sample is higher and smoother over time, while the shifted full sample is more cyclical.
+
+\par Relative to the higher-curvature specifications ($\epsilon=0.5,1,1.5,2$), the $\epsilon=0.25$ series are lower in level, which is exactly what we should expect when inequality aversion is weaker.
+
+\subsection{$\epsilon=0.5$: below log, stronger concavity}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.92\linewidth]{\subfix{../Figures/05_measures_eps05_net.png}}\\[0.75em]
+\includegraphics[width=0.92\linewidth]{\subfix{../Figures/05_measures_eps05_gross.png}}
+\caption{Inequality measures for $\epsilon=0.5$ (top: net wealth, bottom: gross assets). In each panel pair, shifted full sample is on the left and restricted sample is on the right.}
+\label{fig:eps05-measures}
+\end{figure}
+
+\par Still in $0<\epsilon<1$, this specification moves further toward the log boundary than $\epsilon=0.25$, so low-wealth outcomes receive a larger welfare penalty.
+
+\par For $\epsilon=0.5$, the restricted sample produces high and comparatively stable inequality levels over time, while the shifted full sample varies more across years. In both net wealth and gross assets, $I^{A}$ is consistently above $I^{O}$, so the objective benchmark understates measured inequality relative to the ambiguity benchmark.
+
+\subsection{$\epsilon=1$: logarithmic benchmark}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.92\linewidth]{\subfix{../Figures/06_measures_eps1_net.png}}\\[0.75em]
+\includegraphics[width=0.92\linewidth]{\subfix{../Figures/06_measures_eps1_gross.png}}
+\caption{Inequality measures for $\epsilon=1$ (top: net wealth, bottom: gross assets). In each panel pair, shifted full sample is on the left and restricted sample is on the right.}
+\label{fig:eps1-measures}
+\end{figure}
+
+\par At $\epsilon=1$, the homothetic specification coincides with logarithmic utility, the usual boundary between ``below log'' and ``above log'' curvature in this family.
+
+\par The same ranking persists at $\epsilon=1$: in every case, $I^{A}>I^{O}$. Relative to $\epsilon=0.5$, the restricted-sample indices move upward in both wealth concepts, while remaining smoother over time than the shifted full-sample series.
+
+\subsection{$\epsilon=1.5$: above log, strong tail penalty}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.92\linewidth]{\subfix{../Figures/09_measures_eps15_net.png}}\\[0.75em]
+\includegraphics[width=0.92\linewidth]{\subfix{../Figures/09_measures_eps15_gross.png}}
+\caption{Inequality measures for $\epsilon=1.5$ (top: net wealth, bottom: gross assets). In each panel pair, shifted full sample is on the left and restricted sample is on the right.}
+\label{fig:eps15-measures}
+\end{figure}
+
+\par With $\epsilon>1$, curvature is strictly stronger than at the log benchmark, so the social welfare functional penalizes low wealth sharply.
+
+\par In the shifted full sample, this is where the pull-up becomes clear: levels rise materially relative to $\epsilon\in\{0.25,0.5,1\}$, although the series is still not uniformly near one in all years. In the restricted sample, both indices remain very high and smooth, with $I^{A}>I^{O}$ preserved.
+
+\subsection{$\epsilon=2$: strongest curvature in the main text}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.92\linewidth]{\subfix{../Figures/07_measures_eps2_net.png}}\\[0.75em]
+\includegraphics[width=0.92\linewidth]{\subfix{../Figures/07_measures_eps2_gross.png}}
+\caption{Inequality measures for $\epsilon=2$ (top: net wealth, bottom: gross assets). In each panel pair, shifted full sample is on the left and restricted sample is on the right.}
+\label{fig:eps2-measures}
+\end{figure}
+
+\par This is the largest value of $\epsilon$ reported in the main text, so it pushes the homothetic specification closest to an extreme concern for the lower tail of wealth.
+
+\par As $\epsilon$ rises from $1.5$ to $2$, restricted-sample inequality indices concentrate even more tightly near one, reflecting the stronger curvature penalty on lower-wealth outcomes. Even in this high-curvature case, the ambiguity measure remains weakly above the objective measure, preserving the core result $I^{A}\ge I^{O}$ throughout.
+
+\par Taken together, the inequality-measure series tell the same within-sample story across specifications (from $\epsilon=0.25$ through $\epsilon=2$): inequality remains persistently high over time, with fluctuations but no sustained convergence. This is consistent with Figure~\ref{fig:gap-net-gross}, which shows a persistently positive Black-White median wealth differential throughout the sample.
+
+\par In the restricted positive-only sample, measured inequality is especially robust to specification in the sense that levels remain high across all reported $\epsilon$, and the indices move close to one as curvature rises (most clearly for $\epsilon\ge 1$, and for both $I^{O}$ and $I^{A}$ at $\epsilon=2$). Episodes on the shifted series where \textit{both} $I^{O}$ and $I^{A}$ dip together are driven mainly by the shift treatment (year-specific $c_{t,m}$ and the changing mass at non-positive wealth), not by the maxmin step alone; the latter chiefly adds the systematic wedge $I^{A}>I^{O}$. Stronger curvature also pushes both indices upward. By contrast, in the shifted full-sample treatment both $I^{O}$ and $I^{A}$ are more variable over time and show episodes of comparatively low measured inequality at low and moderate $\epsilon$; they begin to pull upward noticeably at $\epsilon=1.5$, and become frequently near one only in the highest-curvature case $\epsilon=2$. This higher time variation in the shifted series tracks the median-gap dynamics in Figure~\ref{fig:gap-net-gross} more closely than the restricted-sample series. Appendix Figure~\ref{fig:shift-mass-diagnostic} plots the shift constant and the weighted share with non-positive wealth, and Appendix Figure~\ref{fig:gap-net-gross-restricted} shows that, even under the same positive-only restriction, both net-wealth and gross-assets median gaps still vary over time and trend upward; relative to that diagnostic, the restricted-sample theoretical indices are unusually stable and persistently high, with $I^{A}$ near the top throughout and $I^{O}$ increasing as $\epsilon$ increases.
+
+\end{document}
