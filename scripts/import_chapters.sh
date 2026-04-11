@@ -141,6 +141,14 @@ copy_file_list "$CHAPTER3_SRC" "$ROOT_DIR/chapters/chapter3" \
   "Subfiles/Conclusion-decory.tex" \
   "Subfiles/Appendix-decory.tex"
 
+# Chapter 3 pipeline writes PNGs/CSVs alongside TeX figures and tables; keep them in sync with the fork.
+require_path "$CHAPTER3_SRC/Figures"
+require_path "$CHAPTER3_SRC/Tables"
+rsync -a --delete --exclude='.DS_Store' \
+  "$CHAPTER3_SRC/Figures/" "$ROOT_DIR/chapters/chapter3/Figures/"
+rsync -a --delete --exclude='.DS_Store' \
+  "$CHAPTER3_SRC/Tables/" "$ROOT_DIR/chapters/chapter3/Tables/"
+
 rsync_clean "$CHAPTER1_SRC/Figures/" "$ROOT_DIR/chapters/chapter1/Figures/"
 rsync_clean "$CHAPTER1_SRC/Tables/" "$ROOT_DIR/chapters/chapter1/Tables/"
 

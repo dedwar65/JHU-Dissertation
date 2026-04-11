@@ -1,5 +1,5 @@
 Gap diagnostic (positive-only): Black-White median gap in net wealth and gross assets
-For each wealth measure, medians are computed using only observations with positive values of that measure.
+For each wealth measure, medians are computed using only observations with that measure positive.
 
 year | net diff | net ratio | gross diff | gross ratio
 1989 | 136190.90 | 3.5560 | 167385.46 | 3.7059
