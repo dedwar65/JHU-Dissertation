@@ -1,4 +1,4 @@
-\documentclass[../../../00-main.tex]{subfiles}
+\documentclass[Chp3.tex]{subfiles}
 
 \begin{document}
 
@@ -175,32 +175,32 @@ U(y)=
 \alpha + \beta\dfrac{y^{1-\epsilon}}{1-\epsilon}, & \epsilon\neq 1,\\
 \alpha + \beta\ln y, & \epsilon=1,
 \end{cases}
-\qquad B>0,
+\qquad \beta>0,
 \]
 we obtain the objective and ambiguity formulas by substituting the corresponding welfare aggregator.
 
 If $\epsilon\neq 1$:
 \[
-w_{EDE}^O=\left[\frac{1-\epsilon}{B}\big(W^{O}-A\big)\right]^{\frac{1}{1-\epsilon}},
+w_{EDE}^O=\left[\frac{1-\epsilon}{\beta}\big(W^{O}-\alpha\big)\right]^{\frac{1}{1-\epsilon}},
 \qquad
-w_{EDE}^A=\left[\frac{1-\epsilon}{B}\big(W^{A}-A\big)\right]^{\frac{1}{1-\epsilon}},
+w_{EDE}^A=\left[\frac{1-\epsilon}{\beta}\big(W^{A}-\alpha\big)\right]^{\frac{1}{1-\epsilon}},
 \]
 \[
-I^{O} = 1-\frac{1}{\mu}\left[\frac{1-\epsilon}{B}\big(W^{O}-A\big)\right]^{\frac{1}{1-\epsilon}},
+I^{O} = 1-\frac{1}{\mu}\left[\frac{1-\epsilon}{\beta}\big(W^{O}-\alpha\big)\right]^{\frac{1}{1-\epsilon}},
 \qquad
-I^{A} = 1-\frac{1}{\mu}\left[\frac{1-\epsilon}{B}\big(W^{A}-A\big)\right]^{\frac{1}{1-\epsilon}}.
+I^{A} = 1-\frac{1}{\mu}\left[\frac{1-\epsilon}{\beta}\big(W^{A}-\alpha\big)\right]^{\frac{1}{1-\epsilon}}.
 \]
 
 If $\epsilon=1$:
 \[
-w_{EDE}^O=\exp\!\left(\frac{W^{O}-A}{B}\right),
+w_{EDE}^O=\exp\!\left(\frac{W^{O}-\alpha}{\beta}\right),
 \qquad
-w_{EDE}^A=\exp\!\left(\frac{W^{A}-A}{B}\right),
+w_{EDE}^A=\exp\!\left(\frac{W^{A}-\alpha}{\beta}\right),
 \]
 \[
-I^{O} = 1-\frac{1}{\mu}\exp\!\left(\frac{W^{O}-A}{B}\right),
+I^{O} = 1-\frac{1}{\mu}\exp\!\left(\frac{W^{O}-\alpha}{\beta}\right),
 \qquad
-I^{A} = 1-\frac{1}{\mu}\exp\!\left(\frac{W^{A}-A}{B}\right).
+I^{A} = 1-\frac{1}{\mu}\exp\!\left(\frac{W^{A}-\alpha}{\beta}\right).
 \]
 
 \par So the extension from objective uncertainty to ambiguity is algebraically the replacement
@@ -208,6 +208,32 @@ I^{A} = 1-\frac{1}{\mu}\exp\!\left(\frac{W^{A}-A}{B}\right).
 W^{O} \longrightarrow W^{A},
 \]
 with the EDE inversion and inequality-index algebra unchanged.
+
+
+\subsection{Restricted-sample median-gap diagnostic}
+\label{app:restricted-gap-diagnostic}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.92\linewidth]{\subfix{../Figures/03_gap_diagnostic_positive_only.png}}
+\caption{Black-White median wealth differential in net wealth and gross assets, positive-only samples (SCF 1989--2022).}
+\label{fig:gap-net-gross-restricted}
+\end{figure}
+
+\par Even after imposing positive-only restrictions, both median-gap series still display visible time variation and an upward tendency over the sample. This provides a useful diagnostic benchmark for interpreting the unusually stable, high restricted-sample model-based inequality indices in the main text.
+
+\subsection{Computational benchmark: the linear case (epsilon = 0)}
+\label{app:eps0-benchmark}
+
+\par When $\epsilon=0$, the CRRA class collapses to linear utility, $U(y)=\alpha+\beta y$ with $\beta>0$. Under this case, the objective index satisfies
+\[
+I^{O}=0
+\]
+by construction, since the equally distributed equivalent equals the mean. This is the expected no-inequality-aversion benchmark.
+
+\par In contrast, the ambiguity index remains sensitive to cross-state asymmetry because maxmin aggregation selects the lower state-level expected utility. In the SCF computations, this yields positive $I^{A}$ values even at $\epsilon=0$, with notably larger values in the restricted positive-only samples than in most shifted full-sample years.
+
+\par The $\epsilon=0$ output is therefore used as a calibration benchmark for the main text: it isolates the linear, no-inequality-aversion case while preserving the ambiguity-vs-objective comparison.
 
 
 \end{document}

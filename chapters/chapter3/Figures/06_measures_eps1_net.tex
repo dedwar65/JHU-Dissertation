@@ -1,0 +1,47 @@
+\begin{minipage}[t]{0.495\textwidth}
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+width=\textwidth,
+height=0.72\textwidth,
+xlabel={Year},
+ylabel={Index value},
+legend pos=south east,
+legend style={font=\tiny,draw=none,fill=none,cells={anchor=west}},
+grid=major,
+scaled x ticks=false,
+xtick={1989,1992,1995,1998,2001,2004,2007,2010,2013,2016,2019,2022},
+xticklabel style={/pgf/number format/fixed,/pgf/number format/precision=0,/pgf/number format/1000 sep={},rotate=35,anchor=east,font=\tiny},
+]
+\addplot+[thick, blue] coordinates {(1989, 0.00061995) (1992, 0.16102121) (1995, 0.00165420) (1998, 0.00239625) (2001, 0.03265795) (2004, 0.38983814) (2007, 0.44421716) (2010, 0.01838952) (2013, 0.00010196) (2016, 0.12792988) (2019, 0.34086328) (2022, 0.45902110)};
+\addlegendentry{$I^{O}$}
+\addplot+[thick, red] coordinates {(1989, 0.00759620) (1992, 0.30588571) (1995, 0.01225434) (1998, 0.01555026) (2001, 0.09894632) (2004, 0.58519901) (2007, 0.62281055) (2010, 0.06259486) (2013, 0.00219510) (2016, 0.23915696) (2019, 0.50641773) (2022, 0.64229387)};
+\addlegendentry{$I^{A}$}
+\end{axis}
+\end{tikzpicture}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.495\textwidth}
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+width=\textwidth,
+height=0.72\textwidth,
+xlabel={Year},
+ylabel={Index value},
+legend pos=south east,
+legend style={font=\tiny,draw=none,fill=none,cells={anchor=west}},
+grid=major,
+scaled x ticks=false,
+xtick={1989,1992,1995,1998,2001,2004,2007,2010,2013,2016,2019,2022},
+xticklabel style={/pgf/number format/fixed,/pgf/number format/precision=0,/pgf/number format/1000 sep={},rotate=35,anchor=east,font=\tiny},
+]
+\addplot+[thick, blue] coordinates {(1989, 0.78172678) (1992, 0.76951161) (1995, 0.76782871) (1998, 0.78790482) (2001, 0.79994570) (2004, 0.81015527) (2007, 0.81269667) (2010, 0.83226822) (2013, 0.84085612) (2016, 0.86513811) (2019, 0.85266966) (2022, 0.84463029)};
+\addlegendentry{$I^{O}$}
+\addplot+[thick, red] coordinates {(1989, 0.94134991) (1992, 0.93573135) (1995, 0.94064267) (1998, 0.93910483) (2001, 0.95103777) (2004, 0.94954077) (2007, 0.94904663) (2010, 0.95596994) (2013, 0.96043146) (2016, 0.97317766) (2019, 0.96886733) (2022, 0.96276126)};
+\addlegendentry{$I^{A}$}
+\end{axis}
+\end{tikzpicture}
+\end{minipage}
+
+% Net Wealth inequality measures (epsilon=1)

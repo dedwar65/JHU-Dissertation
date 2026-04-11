@@ -1,4 +1,4 @@
-\documentclass[../../../00-main.tex]{subfiles}
+\documentclass[Chp3.tex]{subfiles}
 
 \begin{document}
 
@@ -16,8 +16,9 @@
 \par This literature is almost exclusively interested in characterizing inequality in the distribution of income. In the papers that claim to refer to wealth inequality, there is no \say{true} distinction, since the underlying choice under uncertainty model used only incorporates objective uncertainty. Since the literature is solid on the differences between skewness in the distribution of income and the distribution of wealth, one may wish to produce an inequality measure which makes a similar distinction. This measure can provide an alternative lens to view the evolution of racial disparities over time, much like summary statistics such as the racial wealth gap.  
 
 \par The goal of this paper is to produce an alternative measure inequality in the distribution of wealth using this \textit{social welfare approach} to be compared to conventional summary statistics of racial wealth inequality, such as the black-white median wealth gap. This is achieved by exploiting connections between the aforementioned distinct concepts. I make use of an analogy between uncertainty aversion and wealth inequality aversion through specifications on the underlying social welfare function in a choice under ambiguity model, as well as the familiar \textit{equally distributed measure} of an outcome to reach a measure of wealth inequality aversion, in the sense that it takes into consideration particular features of wealth accumulation and distribution which make it different from other distributional outcomes (like income). 
+\par The computational implementation of these measures is presented in Subsection~\ref{subsec:compute-measures}, which uses SCF data (1989--2022) for net wealth and gross assets to compare the model-based inequality measures with Black-White median wealth-gap diagnostics.
 
-\par The paper proceeds as follows. Section~\ref{sec:Motivation} presents arguments for distinguishing income and wealth inequality in this framework. Sections~\ref{sec:ExtendedModel}--\ref{sec:Altmeasure} then apply the approach to wealth, in the following order: choice under objective--subjective uncertainty, the social welfare approach, and the resulting inequality measure. Section~\ref{sec:chapter3-conclusion} concludes. The appendix~\ref{app:supp} collects proofs and provides an explicit formulation of the construction towards the measure of income inequality aversion from the literature.
+\par The paper proceeds as follows. Section~\ref{sec:Motivation} presents arguments for distinguishing income and wealth inequality in this framework. Sections~\ref{sec:ExtendedModel}--\ref{sec:Altmeasure} then apply the approach to wealth, in the following order: choice under objective--subjective uncertainty, the social welfare approach, and the resulting inequality measure. Subsection~\ref{subsec:compute-measures} provides the SCF-based computational implementation and comparison to the Black-White median wealth gap. Section~\ref{sec:chapter3-conclusion} concludes. The appendix~\ref{app:supp} collects proofs and provides an explicit formulation of the construction towards the measure of income inequality aversion from the literature.
 
 
 
