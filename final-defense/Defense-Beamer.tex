@@ -259,6 +259,37 @@
   \textit{Question: does the standard objective benchmark understate wealth inequality when racial structure is central?}
 \end{frame}
 
+\begin{frame}[label=ch3-setup]{Chapter 3: Inequality Measurement --- Setup}
+  \scriptsize
+  \textbf{Input:} A wealth frequency distribution $p(y)$ --- for each wealth level $y \in [0,\bar{y}]$, $p(y)$ is the share of the population at that wealth level. The objects being ranked are \textit{full distributions}, not individual outcomes.
+
+  \vspace{0.5em}
+  \textbf{Objective (Atkinson) measure.} A social planner with welfare function $U(y)$ (increasing, concave) ranks distributions by expected utility:
+  $$W^O = \int_0^{\bar{y}} U(y)\, p(y)\, dy.$$
+  The \textit{equally distributed equivalent} wealth $w_{EDE}$ satisfies $U(w_{EDE}) = W^O$. The inequality index is:
+  $$I^O = 1 - \frac{w_{EDE}}{\mu}, \qquad \mu = \text{mean wealth.}$$
+
+  \vspace{0.2em}
+  Using the CRRA welfare function $U(y) = \frac{y^{1-\epsilon}}{1-\epsilon}$ (with $\epsilon \geq 0$ governing inequality aversion) yields a mean-independent, unit-free measure $I^O \in [0,1]$.
+\end{frame}
+
+\begin{frame}[label=ch3-ambiguity-derive]{Chapter 3: The Ambiguity-Based Measure}
+  \scriptsize
+  \textbf{Extension.} States $S = \{\text{Black},\,\text{White}\}$. The planner does not know the objective probability over states --- this is \textit{ambiguity} (Gilboa--Schmeidler 1989). Each act $f \in F$ maps a state to a wealth distribution: $f(s) = p(s)(y)$.
+
+  \vspace{0.4em}
+  The ambiguity-averse welfare criterion takes the worst-case weighting over beliefs $\lambda \in \Delta(S)$:
+  $$W^A = \min_{\lambda \in \Delta(S)} \int_S \int_0^{\bar{y}} U(y)\,p(s)(y)\,dy\,d\lambda \;=\; \min_{s\,\in\, S}\;\mathbb{E}_{p(s)}\bigl[U(y)\bigr].$$
+  The minimum puts all weight on whichever racial group has the lower within-group expected utility that year.
+
+  \vspace{0.4em}
+  The ambiguity EDE solves $U(w^A_{EDE}) = W^A$, giving:
+  $$I^A = 1 - \frac{w^A_{EDE}}{\mu}.$$
+
+  \vspace{0.2em}
+  Since $W^A \leq W^O$ by construction, $I^A \geq I^O$: the ambiguity criterion \textbf{systematically reports higher inequality} than the objective benchmark for the same wealth distribution.
+\end{frame}
+
 \begin{frame}{Chapter 3: Data Pattern}
   \begin{columns}
     \column{0.70\textwidth}
